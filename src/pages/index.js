@@ -3,6 +3,9 @@ import React from "react"
 import styled from "styled-components"
 import { Layout } from "../components/Layout"
 import Img from "gatsby-image"
+import Dump from "../components/Dump"
+import SEO from "react-seo-component"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const IndexWrapper = styled.main``
 const PostWrapper = styled.div``
@@ -11,8 +14,27 @@ const Image = styled(Img)`
 `
 
 export default ({ data }) => {
+  const {
+    description,
+    title,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+  } = useSiteMetadata()
+
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={description || `No description found’`}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
       <IndexWrapper>
         {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
           <PostWrapper key={id}>

@@ -20,6 +20,7 @@
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-mdx": "^1.0.64",
+    "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-sharp": "^2.3.10",
     "gatsby-plugin-styled-components": "^3.1.16",
     "gatsby-remark-images": "^3.1.39",
@@ -29,6 +30,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-live": "^2.2.2",
+    "react-seo-component": "^0.1.16",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {

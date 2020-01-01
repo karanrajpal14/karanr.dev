@@ -1,14 +1,13 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-
   siteMetadata: {
     title: `The Localhost Blog`,
     description: `This is my coding blog where I write about my coding journey.`,
+    image: `/default-site-image.jpg`,
+    siteUrl: `https://thelocalhost.blog`,
+    siteLanguage: `en-GB`,
+    siteLocale: `en_gb`,
+    twitterUsername: `@spences10`,
+    authorName: `Scott Spence`,
   },
 
   plugins: [
@@ -46,4 +45,4 @@ module.exports = {
       },
     },
   ],
-};
+}
