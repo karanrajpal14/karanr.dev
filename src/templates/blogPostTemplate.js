@@ -3,7 +3,13 @@ import SEO from "react-seo-component"
 import { Layout } from "../components/Layout"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Img from "gatsby-image"
+import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+
+const Image = styled(Img)`
+  border-radius: 5px;
+`
 
 export default ({ data, pageContext }) => {
   const {
@@ -35,12 +41,15 @@ export default ({ data, pageContext }) => {
         modifiedDate={new Date(Date.now()).toISOString()}
       />
       <h1>{frontmatter.title}</h1>
+      {!!frontmatter.cover ? (
+        <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+      ) : null}
       <p>{frontmatter.date}</p>
       <MDXRenderer>{body}</MDXRenderer>
       {previous === false ? null : (
         <>
           {previous && (
-            <Link to={previous.fields.slug}>
+            <Link to={`/blog${previous.fields.slug}`}>
               <p>{previous.frontmatter.title}</p>
             </Link>
           )}
@@ -49,7 +58,7 @@ export default ({ data, pageContext }) => {
       {next === false ? null : (
         <>
           {next && (
-            <Link to={next.fields.slug}>
+            <Link to={`/blog${next.fields.slug}`}>
               <p>{next.frontmatter.title}</p>
             </Link>
           )}
@@ -67,6 +76,11 @@ export const query = graphql`
         date(formatString: "YYYY MMMM Do")
         cover {
           publicURL
+          childImageSharp {
+            sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
+              ...GatsbyImageSharpSizes_tracedSVG
+            }
+          }
         }
       }
       body

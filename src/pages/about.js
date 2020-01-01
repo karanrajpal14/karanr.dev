@@ -31,9 +31,7 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <IndexWrapper>
-        <h1>Hello!</h1>
-        <h2>I'm Karan Rajpal</h2>
-        <p>Need a developer? <Link to="/contact">Contact me.</Link></p>
+        <p>About page</p>
       </IndexWrapper>
     </Layout>
   )

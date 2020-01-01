@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `The Localhost Blog`,
+    title: `Karan Rajpal | Portfolio`,
     description: `This is my coding blog where I write about my coding journey.`,
     image: `/default-site-image.jpg`,
-    siteUrl: `https://thelocalhost.blog`,
+    siteUrl: `https://karanr.dev`,
     siteLanguage: `en-GB`,
     siteLocale: `en_gb`,
-    twitterUsername: `@spences10`,
-    authorName: `Scott Spence`,
+    twitterUsername: `@karanrajpal14`,
+    authorName: `Karan Rajpal`,
   },
 
   plugins: [
@@ -36,12 +36,18 @@ module.exports = {
         ],
       },
     },
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/posts`,
         name: `posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src`,
+        name: `src`,
       },
     },
   ],

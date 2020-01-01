@@ -1,14 +1,13 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import { Layout } from "../components/Layout"
-import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const IndexWrapper = styled.main``
 
-export default ({ data }) => {
+export default () => {
   const {
     description,
     title,
@@ -31,9 +30,10 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <IndexWrapper>
-        <h1>Hello!</h1>
-        <h2>I'm Karan Rajpal</h2>
-        <p>Need a developer? <Link to="/contact">Contact me.</Link></p>
+        <h1>Uh oh, looks like you're not where you should be.</h1>
+        <h2>
+          <Link to="/">Head back home and start over</Link>
+        </h2>
       </IndexWrapper>
     </Layout>
   )
