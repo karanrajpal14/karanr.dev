@@ -6,8 +6,11 @@ module.exports = {
     siteUrl: `https://karanr.dev`,
     siteLanguage: `en-GB`,
     siteLocale: `en_gb`,
-    twitterUsername: `@karanrajpal14`,
     authorName: `Karan Rajpal`,
+    designation: `Full-stack Developer`,
+    twitterUsername: `@karanrajpal14`,
+    githubUsername: `karanrajpal14`,
+    linkedinUsername: `karan-rajpal`
   },
 
   plugins: [
