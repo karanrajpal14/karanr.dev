@@ -5,8 +5,8 @@ import { Layout } from "../components/Layout"
 import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-
-const IndexWrapper = styled.main``
+import Hero from "../components/hero"
+import "rbx/index.css"
 
 export default ({ data }) => {
   const {
@@ -30,11 +30,7 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        <h1>Hello!</h1>
-        <h2>I'm Karan Rajpal</h2>
-        <p>Need a developer? <Link to="/contact">Contact me.</Link></p>
-      </IndexWrapper>
+      <Hero />
     </Layout>
   )
 }
