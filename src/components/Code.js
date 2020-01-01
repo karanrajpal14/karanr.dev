@@ -1,14 +1,9 @@
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/nightOwl'
-import React from 'react'
-import styled from 'styled-components';
-import {
-    LiveEditor,
-    LiveError,
-    LivePreview,
-    LiveProvider,
-} from 'react-live';
-import { copyToClipboard } from '../utils/copy-to-clipboard';
+import React from "react"
+import styled from "styled-components"
+import Highlight, { defaultProps } from "prism-react-renderer"
+import theme from "prism-react-renderer/themes/nightOwl"
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
+import { copyToClipboard } from "../utils/copy-to-clipboard"
 
 export const Pre = styled.pre`
   text-align: left;
@@ -20,16 +15,16 @@ export const Pre = styled.pre`
     line-height: 1.3rem;
     height: 1.3rem;
   }
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   position: relative;
-`;
+`
 
 export const LineNo = styled.span`
   display: inline-block;
   width: 2em;
   user-select: none;
   opacity: 0.3;
-`;
+`
 
 const CopyCode = styled.button`
   position: absolute;
@@ -41,49 +36,43 @@ const CopyCode = styled.button`
   &:hover {
     opacity: 1;
   }
-`;
+`
 
 export const Code = ({ codeString, language, ...props }) => {
-    if (props['react-live']) {
-        return (
-            <LiveProvider code={codeString} noInline={true} theme={theme}>
-                <LiveEditor />
-                <LiveError />
-                <LivePreview />
-            </LiveProvider>
-        );
-    }
-
-    const handleClick = () => {
-        copyToClipboard(codeString);
-    };
-
+  if (props["react-live"]) {
     return (
-        <Highlight
-            {...defaultProps}
-            code={codeString}
-            language={language}
-            theme={theme}
-        >
-            {({
-                className,
-                style,
-                tokens,
-                getLineProps,
-                getTokenProps,
-            }) => (
-                    <Pre className={className} style={style}>
-                        <CopyCode onClick={handleClick}>Copy</CopyCode>
-                        {tokens.map((line, i) => (
-                            <div {...getLineProps({ line, key: i })}>
-                                <LineNo>{i + 1}</LineNo>
-                                {line.map((token, key) => (
-                                    <span {...getTokenProps({ token, key })} />
-                                ))}
-                            </div>
-                        ))}
-                    </Pre>
-                )}
-        </Highlight>
+      <LiveProvider code={codeString} noInline={true} theme={theme}>
+        <LiveEditor />
+        <LiveError />
+        <LivePreview />
+      </LiveProvider>
     )
+  }
+
+  const handleClick = () => {
+    copyToClipboard(codeString)
+  }
+
+  return (
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <Pre className={className} style={style}>
+          <CopyCode onClick={handleClick}>Copy</CopyCode>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
+  )
 }

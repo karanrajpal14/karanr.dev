@@ -1,9 +1,8 @@
-import { graphql, Link } from "gatsby"
 import React from "react"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { Layout } from "../components/Layout"
 import Img from "gatsby-image"
-import Dump from "../components/Dump"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 

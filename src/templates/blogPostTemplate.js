@@ -1,10 +1,9 @@
+import React from "react"
+import SEO from "react-seo-component"
+import { Layout } from "../components/Layout"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import React from "react"
-import Dump from "../components/Dump"
-import { Layout } from "../components/Layout"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import SEO from "react-seo-component"
 
 export default ({ data, pageContext }) => {
   const {
@@ -20,8 +19,6 @@ export default ({ data, pageContext }) => {
   const { previous, next } = pageContext
   return (
     <Layout>
-      <Dump previous={previous} />
-      <Dump next={next} />
       <SEO
         title={title}
         description={excerpt}
