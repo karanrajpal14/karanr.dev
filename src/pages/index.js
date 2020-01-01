@@ -5,7 +5,7 @@ import { Layout } from "../components/Layout"
 import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import Hero from "../components/hero"
+import Hero from "../components/Hero"
 import "rbx/index.css"
 
 export default ({ data }) => {
@@ -16,7 +16,11 @@ export default ({ data }) => {
     siteUrl,
     siteLanguage,
     siteLocale,
+    authorName,
+    designation,
     twitterUsername,
+    githubUsername,
+    linkedinUsername,
   } = useSiteMetadata()
 
   return (
@@ -30,7 +34,13 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <Hero />
+      <Hero
+        authorName={authorName}
+        designation={designation}
+        twitterUsername={twitterUsername}
+        githubUsername={githubUsername}
+        linkedinUsername={linkedinUsername}
+      />
     </Layout>
   )
 }

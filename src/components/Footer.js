@@ -1,11 +1,12 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import { Footer as RBXFooter, Content, Column } from "rbx"
 import { FaHeart } from "react-icons/fa"
+import footerStyles from "./footer.module.scss"
 
 export const Footer = ({ authorName }) => {
   return (
-    <RBXFooter>
+    <RBXFooter as="footer">
       <Content textAlign="centered">
         <Column.Group centered>
           <Column narrow>

@@ -12,8 +12,11 @@ export const useSiteMetadata = () => {
             siteUrl
             siteLanguage
             siteLocale
-            twitterUsername
             authorName
+            designation
+            twitterUsername
+            githubUsername
+            linkedinUsername
           }
         }
       }
