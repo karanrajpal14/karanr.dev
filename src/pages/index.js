@@ -1,11 +1,10 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import styled from "styled-components"
 import { Layout } from "../components/Layout"
-import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import Hero from "../components/Hero"
+import { About } from "../components/About"
+import { Projects } from "../components/Projects"
 import "rbx/index.css"
 
 export default ({ data }) => {
@@ -41,6 +40,8 @@ export default ({ data }) => {
         githubUsername={githubUsername}
         linkedinUsername={linkedinUsername}
       />
+      <About/>
+      <Projects/>
     </Layout>
   )
 }
