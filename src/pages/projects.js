@@ -37,7 +37,7 @@ export default ({ data }) => {
       <IndexWrapper>
         {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
           <PostWrapper key={id}>
-            <Link to={`/blog/${fields.slug}`}>
+            <Link to={`/project/${fields.slug}`}>
               {!!frontmatter.cover ? (
                 <Image sizes={frontmatter.cover.childImageSharp.sizes} />
               ) : null}
@@ -53,10 +53,12 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query POST_INDEX_QUERY {
+  query PROJECT_INDEX_QUERY {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { eq: true }, type: { eq: "post" } } }
+      filter: {
+        frontmatter: { published: { eq: true }, type: { eq: "project" } }
+      }
     ) {
       nodes {
         id

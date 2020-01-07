@@ -1,15 +1,17 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require(`path`)
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve("src/templates/blogPostTemplate.js")
 
-  return graphql(`
+  const blogPostTemplate = path.resolve("src/templates/blogPostTemplate.js")
+  const blogResults = await graphql(`
     {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        filter: { frontmatter: { published: { eq: true } } }
+        filter: {
+          frontmatter: { published: { eq: true }, type: { eq: "post" } }
+        }
       ) {
         nodes {
           fields {
@@ -21,27 +23,61 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors
+  `)
+
+  const posts = blogResults.data.allMdx.nodes
+
+  // create page for each mdx node
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1]
+    const next = index === 0 ? null : posts[index - 1]
+
+    createPage({
+      path: `/blog${post.fields.slug}`,
+      component: blogPostTemplate,
+      context: {
+        slug: post.fields.slug,
+        previous,
+        next,
+      },
+    })
+  })
+
+  const projectTemplate = path.resolve("src/templates/projectTemplate.js")
+  const projectResults = await graphql(`
+    {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: {
+          frontmatter: { published: { eq: true }, type: { eq: "project" } }
+        }
+      ) {
+        nodes {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
     }
+  `)
 
-    const posts = result.data.allMdx.nodes
+  const projects = projectResults.data.allMdx.nodes
 
-    // create page for each mdx node
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1]
-      const next = index === 0 ? null : posts[index - 1]
+  projects.forEach((project, index) => {
+    const previous = index === projects.length - 1 ? null : projects[index + 1]
+    const next = index === 0 ? null : projects[index - 1]
 
-      createPage({
-        path: `/blog${post.fields.slug}`,
-        component: blogPostTemplate,
-        context: {
-          slug: post.fields.slug,
-          previous,
-          next,
-        },
-      })
+    createPage({
+      path: `/project${project.fields.slug}`,
+      component: projectTemplate,
+      context: {
+        slug: project.fields.slug,
+        previous,
+        next,
+      },
     })
   })
 }
