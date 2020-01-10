@@ -44,7 +44,7 @@ const contactSchema = yup.object().shape({
 const handleOnSubmit = (values, actions) => {
   axios({
     method: "POST",
-    url: "https://hgwaf31jxa.execute-api.us-west-2.amazonaws.com/dev/",
+    url: "https://hgwaf31jxa.execute-api.us-west-2.amazonaws.com/dev?format=json",
     data: values,
   })
     .then(response => {
