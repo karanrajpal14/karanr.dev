@@ -18,6 +18,7 @@ import {
 } from "rbx"
 import * as yup from "yup"
 import { FaEnvelope, FaUser, FaTelegramPlane } from "react-icons/fa"
+import axios from "axios"
 
 const alpha = /^[a-zA-Z_]+( [a-zA-Z_]+)*$/
 
@@ -40,6 +41,21 @@ const contactSchema = yup.object().shape({
     .min(10, "That message seems to be a tad bit short, don't you think?"),
 })
 
+const handleOnSubmit = (values, actions) => {
+  axios({
+    method: "POST",
+    url: "https://hgwaf31jxa.execute-api.us-west-2.amazonaws.com/dev/",
+    data: values,
+  })
+    .then(response => {
+      actions.setSubmitting(false)
+      actions.resetForm()
+    })
+    .catch(error => {
+      actions.setSubmitting(false)
+    })
+}
+
 export const Contact = () => {
   return (
     <Section id="contact">
@@ -56,11 +72,13 @@ export const Contact = () => {
                 <p>Hit me up. We'll have a chat :D</p>
                 <Formik
                   initialValues={{
-                    name: "",
-                    email: "",
-                    message: "",
+                    name: "Karen Rejpal",
+                    email: "email@lol.com",
+                    message:
+                      "Tell me, what ails you?Tell me, what ails you?Tell me, what ails you?Tell me, what ails you?",
                   }}
                   validationSchema={contactSchema}
+                  onSubmit={handleOnSubmit}
                   render={formProps => {
                     return (
                       <Form>
@@ -71,6 +89,11 @@ export const Contact = () => {
                           <Field.Body>
                             <Field>
                               <Control expanded iconLeft>
+                                <Input
+                                  type="hidden"
+                                  name="_to"
+                                  value="f6cbcbaebfefabda86d7299dc4d8a1a7a1ad748b3aff813c"
+                                />
                                 <Input
                                   as={FormikField}
                                   type="text"

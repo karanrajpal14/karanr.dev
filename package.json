@@ -16,6 +16,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.3",
     "@mdx-js/react": "^1.5.3",
+    "axios": "^0.19.1",
     "babel-plugin-styled-components": "^1.10.6",
     "formik": "^2.1.1",
     "gatsby": "^2.18.12",
