@@ -5,7 +5,7 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import Hero from "../components/Hero"
 import { About } from "../components/About"
 import { Projects } from "../components/Projects"
-import "rbx/index.css"
+import { Blog } from "../components/Blog"
 
 export default ({ data }) => {
   const {
@@ -40,8 +40,9 @@ export default ({ data }) => {
         githubUsername={githubUsername}
         linkedinUsername={linkedinUsername}
       />
-      <About/>
-      <Projects/>
+      <About />
+      <Projects />
+      <Blog />
     </Layout>
   )
 }
