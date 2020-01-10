@@ -49,7 +49,7 @@ export default ({ data, pageContext }) => {
       {previous === false ? null : (
         <>
           {previous && (
-            <Link to={`/project${previous.fields.slug}`}>
+            <Link to={`/projects${previous.fields.slug}`}>
               <p>{previous.frontmatter.title}</p>
             </Link>
           )}
@@ -58,7 +58,7 @@ export default ({ data, pageContext }) => {
       {next === false ? null : (
         <>
           {next && (
-            <Link to={`/project${next.fields.slug}`}>
+            <Link to={`/projects${next.fields.slug}`}>
               <p>{next.frontmatter.title}</p>
             </Link>
           )}
