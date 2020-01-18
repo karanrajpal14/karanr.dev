@@ -9,7 +9,7 @@ export const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Navbar />
-      {children}
+      <main class="site-content">{children}</main>
       <Footer authorName={authorName} />
     </React.Fragment>
   )

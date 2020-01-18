@@ -69,3 +69,25 @@ $family-sans-serif: "Nunito", sans-serif;
   text-align: left !important;
   vertical-align: middle !important;
 }
+
+// Sticky footer fix
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+main {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.footer {
+  grid-row: 2 / 3;
+}
