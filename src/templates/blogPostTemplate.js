@@ -6,11 +6,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import { Container, Title } from "rbx"
-
-const Image = styled(Img)`
-  border-radius: 5px;
-`
+import { Container, Title, Divider, Button, Icon, Column, Section, Image } from "rbx"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 export default ({ data, pageContext }) => {
   const {
@@ -41,32 +38,55 @@ export default ({ data, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <Container>
-        <Title>{frontmatter.title}</Title>
-        {/* {!!frontmatter.cover ? (
-          <Image sizes={frontmatter.cover.childImageSharp.sizes}  />
-        ) : null} */}
-        <Title subtitle>{frontmatter.date}</Title>
-        <MDXRenderer>{body}</MDXRenderer>
-        {previous === false ? null : (
-          <>
-            {previous && (
-              <Link to={`/blog${previous.fields.slug}`}>
-                <p>{previous.frontmatter.title}</p>
-              </Link>
-            )}
-          </>
-        )}
-        {next === false ? null : (
-          <>
-            {next && (
-              <Link to={`/blog${next.fields.slug}`}>
-                <p>{next.frontmatter.title}</p>
-              </Link>
-            )}
-          </>
-        )}
-      </Container>
+      <Section>
+        <Container>
+          <Title>{frontmatter.title}</Title>
+          <Title subtitle>{frontmatter.date}</Title>
+          {/* {!!frontmatter.cover ? (
+            <Image.Container size={512}>
+              <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+            </Image.Container>
+          ) : null} */}
+          <Divider />
+          <MDXRenderer>{body}</MDXRenderer>
+          <Divider />
+          <Column.Group multiline centered>
+            <Column narrow>
+              {previous === false ? null : (
+                <React.Fragment>
+                  {previous && (
+                    <Button as={Link} to={`/blog${previous.fields.slug}`}>
+                      <Icon size="small">
+                        <FaChevronLeft />
+                      </Icon>
+                      <p>{previous.frontmatter.title}</p>
+                    </Button>
+                  )}
+                </React.Fragment>
+              )}
+            </Column>
+
+            <Column narrow>
+              <Button as={Link}>Scroll to top</Button>
+            </Column>
+
+            <Column narrow>
+              {next === false ? null : (
+                <React.Fragment>
+                  {next && (
+                    <Button as={Link} to={`/blog${next.fields.slug}`}>
+                      <Icon size="small">
+                        <FaChevronRight />
+                      </Icon>
+                      <p>{next.frontmatter.title}</p>
+                    </Button>
+                  )}
+                </React.Fragment>
+              )}
+            </Column>
+          </Column.Group>
+        </Container>
+      </Section>
     </Layout>
   )
 }
