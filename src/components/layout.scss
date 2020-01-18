@@ -1,0 +1,71 @@
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+
+// Set your brand colors
+$purple: #8a4d76;
+$pink: #fa7c91;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+// $grey-dark: $brown;
+// $grey-light: $beige-light;
+// $primary: $purple;
+// $link: $pink;
+
+// Update some of Bulma's component variables
+// $body-background-color: $beige-lighter;
+// $control-border-width: 2px;
+// $input-border-color: transparent;
+// $input-shadow: none;
+
+// Import only what you need from Bulma
+@import "~bulma/sass/utilities/_all.sass";
+
+@import "~bulma/sass/base/_all.sass";
+
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/elements/icon.sass";
+@import "~bulma/sass/elements/image.sass";
+@import "~bulma/sass/elements/notification.sass";
+@import "~bulma/sass/elements/other.sass";
+
+@import "~bulma/sass/form/_all.sass";
+
+@import "~bulma/sass/grid/columns.sass";
+
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/card.sass";
+
+@import "~bulma/sass/layout/_all.sass";
+
+@import "~bulma-badge/dist/css/bulma-badge.sass";
+@import "~bulma-divider/dist/css/bulma-divider.sass";
+@import "~bulma-pageloader/dist/css/bulma-pageloader.sass";
+@import "~bulma-tooltip/dist/css/bulma-tooltip.sass";
+
+@import "~rbx/rbx.sass";
+
+// Fixing Bulma styles interfering with PrisimJS
+.tag {
+  background-color: transparent !important;
+}
+
+.number {
+  align-items: left !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  font-size: $size-normal !important;
+  height: auto !important;
+  justify-content: left !important;
+  margin-right: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+}

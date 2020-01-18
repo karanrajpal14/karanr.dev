@@ -2,7 +2,7 @@ import React from "react"
 import { Navbar } from "./Navbar"
 import { Footer } from "./Footer"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import "rbx/index.css"
+import "./layout.scss"
 
 export const Layout = ({ children }) => {
   const { title, description, authorName } = useSiteMetadata()

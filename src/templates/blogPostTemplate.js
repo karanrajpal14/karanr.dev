@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { Container, Title } from "rbx"
 
 const Image = styled(Img)`
   border-radius: 5px;
@@ -40,30 +41,32 @@ export default ({ data, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <h1>{frontmatter.title}</h1>
-      {!!frontmatter.cover ? (
-        <Image sizes={frontmatter.cover.childImageSharp.sizes} />
-      ) : null}
-      <p>{frontmatter.date}</p>
-      <MDXRenderer>{body}</MDXRenderer>
-      {previous === false ? null : (
-        <>
-          {previous && (
-            <Link to={`/blog${previous.fields.slug}`}>
-              <p>{previous.frontmatter.title}</p>
-            </Link>
-          )}
-        </>
-      )}
-      {next === false ? null : (
-        <>
-          {next && (
-            <Link to={`/blog${next.fields.slug}`}>
-              <p>{next.frontmatter.title}</p>
-            </Link>
-          )}
-        </>
-      )}
+      <Container>
+        <Title>{frontmatter.title}</Title>
+        {/* {!!frontmatter.cover ? (
+          <Image sizes={frontmatter.cover.childImageSharp.sizes}  />
+        ) : null} */}
+        <Title subtitle>{frontmatter.date}</Title>
+        <MDXRenderer>{body}</MDXRenderer>
+        {previous === false ? null : (
+          <>
+            {previous && (
+              <Link to={`/blog${previous.fields.slug}`}>
+                <p>{previous.frontmatter.title}</p>
+              </Link>
+            )}
+          </>
+        )}
+        {next === false ? null : (
+          <>
+            {next && (
+              <Link to={`/blog${next.fields.slug}`}>
+                <p>{next.frontmatter.title}</p>
+              </Link>
+            )}
+          </>
+        )}
+      </Container>
     </Layout>
   )
 }
