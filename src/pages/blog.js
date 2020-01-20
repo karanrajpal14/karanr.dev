@@ -1,16 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import styled from "styled-components"
 import { Layout } from "../components/Layout"
-import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-
-const IndexWrapper = styled.main``
-const PostWrapper = styled.div``
-const Image = styled(Img)`
-  border-radius: 5px;
-`
+import { Section, Container, Column, Title, Card, Generic } from "rbx"
+import { IconSelector } from "../components/IconSelector"
 
 export default ({ data }) => {
   const {
@@ -34,20 +28,57 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
-          <PostWrapper key={id}>
-            <Link to={`/blog/${fields.slug}`}>
-              {!!frontmatter.cover ? (
-                <Image sizes={frontmatter.cover.childImageSharp.sizes} />
-              ) : null}
-              <h1>{frontmatter.title}</h1>
-              <p>{frontmatter.date}</p>
-              <p>{excerpt}</p>
-            </Link>
-          </PostWrapper>
-        ))}
-      </IndexWrapper>
+      <Section>
+        <Container>
+          <Title as="h1">
+            <IconSelector icon="chevright" /> All posts
+          </Title>
+          <Column.Group multiline centered>
+            {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
+              <Column size="one-fourth-desktop half-tablet" key={id}>
+                <Link to={`/blog/${fields.slug}`}>
+                  <Card className="card-equal-height">
+                    <Card.Header>
+                      <Card.Header.Title align="centered">
+                        <Title as="h2" size={4}>
+                          {frontmatter.title}
+                        </Title>
+                      </Card.Header.Title>
+                    </Card.Header>
+                    <Card.Content>
+                      <Title as="p" subtitle size={5}>
+                        {excerpt}
+                      </Title>
+                    </Card.Content>
+                    <Card.Footer
+                      as="footer"
+                      className="card-equal-height card-footer"
+                    >
+                      <Card.Footer.Item as="p">
+                        {!!frontmatter.tags
+                          ? frontmatter.tags.map(tag => {
+                              return (
+                                <Generic
+                                  as="span"
+                                  tooltip={tag}
+                                  tooltipColor="black"
+                                  textColor="primary"
+                                  key={tag}
+                                >
+                                  <IconSelector icon={tag} />
+                                </Generic>
+                              )
+                            })
+                          : null}
+                      </Card.Footer.Item>
+                    </Card.Footer>
+                  </Card>
+                </Link>
+              </Column>
+            ))}
+          </Column.Group>
+        </Container>
+      </Section>
     </Layout>
   )
 }
@@ -64,6 +95,7 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
+          tags
           cover {
             publicURL
             childImageSharp {
