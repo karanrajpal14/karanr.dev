@@ -13,6 +13,7 @@ export const Projects = ({ authorName }) => {
         filter: {
           frontmatter: { published: { eq: true }, type: { eq: "project" } }
         }
+        limit: 6
       ) {
         nodes {
           id
@@ -99,6 +100,9 @@ export const Projects = ({ authorName }) => {
               )
             })}
           </Column.Group>
+          <Title textAlign="centered" subtitle>
+            <Link to="/projects">See more <IconSelector icon="angleright" /></Link>
+          </Title>
         </Container>
       </Column>
     </Section>

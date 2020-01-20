@@ -5,11 +5,35 @@ import { Layout } from "../components/Layout"
 import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { Section, Container, Title, Image, Column, Card, Generic } from "rbx"
+import { IconSelector } from "../components/IconSelector"
 
-const IndexWrapper = styled.main``
-const PostWrapper = styled.div``
-const Image = styled(Img)`
-  border-radius: 5px;
+const StyledImage = styled(Img)`
+  border-radius: 5px 5px 0 0 !important;
+`
+
+const StyledCard = styled(Card)`
+  border-radius: 5px !important;
+  transition: all 0.3s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 5px !important;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover {
+    transform: scale(1.005, 1.005);
+    &::after {
+      opacity: 1;
+    }
+  }
 `
 
 export default ({ data }) => {
@@ -34,20 +58,66 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
-          <PostWrapper key={id}>
-            <Link to={`/project/${fields.slug}`}>
-              {!!frontmatter.cover ? (
-                <Image sizes={frontmatter.cover.childImageSharp.sizes} />
-              ) : null}
-              <h1>{frontmatter.title}</h1>
-              <p>{frontmatter.date}</p>
-              <p>{excerpt}</p>
-            </Link>
-          </PostWrapper>
-        ))}
-      </IndexWrapper>
+      <Section>
+        <Container>
+          <Title as="h1">
+            <IconSelector icon="chevright" /> All projects
+          </Title>
+          <Column.Group multiline centered>
+            {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
+              <Column size="one-fourth-desktop half-tablet" key={id}>
+                <Link to={`/project/${fields.slug}`}>
+                  <StyledCard className="card-equal-height">
+                    <Card.Image>
+                      {!!frontmatter.cover ? (
+                        <Image.Container size={512}>
+                          <StyledImage
+                            sizes={frontmatter.cover.childImageSharp.sizes}
+                          />
+                        </Image.Container>
+                      ) : null}
+                    </Card.Image>
+                    <Card.Header>
+                      <Card.Header.Title align="centered">
+                        <Title as="h2" size={4}>
+                          {frontmatter.title}
+                        </Title>
+                      </Card.Header.Title>
+                    </Card.Header>
+                    <Card.Content>
+                      <Title as="p" subtitle size={5}>
+                        {excerpt}
+                      </Title>
+                    </Card.Content>
+                    <Card.Footer
+                      as="footer"
+                      className="card-equal-height card-footer"
+                    >
+                      <Card.Footer.Item as="p">
+                        {!!frontmatter.tags
+                          ? frontmatter.tags.map(tag => {
+                              return (
+                                <Generic
+                                  as="span"
+                                  tooltip={tag}
+                                  tooltipColor="black"
+                                  textColor="primary"
+                                  key={tag}
+                                >
+                                  <IconSelector icon={tag} />
+                                </Generic>
+                              )
+                            })
+                          : null}
+                      </Card.Footer.Item>
+                    </Card.Footer>
+                  </StyledCard>
+                </Link>
+              </Column>
+            ))}
+          </Column.Group>
+        </Container>
+      </Section>
     </Layout>
   )
 }
@@ -66,6 +136,7 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
+          tags
           cover {
             publicURL
             childImageSharp {
