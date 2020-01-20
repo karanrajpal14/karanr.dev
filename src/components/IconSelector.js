@@ -7,6 +7,7 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaExclamationCircle,
+  FaAngleDoubleRight,
 } from "react-icons/fa"
 
 export const IconSelector = ({ icon }) => {
@@ -16,6 +17,7 @@ export const IconSelector = ({ icon }) => {
     chevright: (
       <FaChevronRight color="#33b5e5" style={{ verticalAlign: "bottom" }} />
     ),
+    angleright: <FaAngleDoubleRight style={{ verticalAlign: "bottom" }} />,
     java: <FaJava color="#ED1D25" size={size} />,
     html: <FaHtml5 color="#E44D26" size={size} />,
     css: <FaCss3Alt color="#264de4" size={size} />,

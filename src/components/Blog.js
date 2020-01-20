@@ -2,13 +2,13 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Section, Container, Title, Column, Image, Card, Generic } from "rbx"
-import styles from "./blog.module.scss"
 import { IconSelector } from "./IconSelector"
 
 export const Blog = ({ authorName }) => {
   const data = useStaticQuery(graphql`
     {
       allMdx(
+        limit: 3
         sort: { fields: [frontmatter___date], order: DESC }
         filter: {
           frontmatter: { published: { eq: true }, type: { eq: "post" } }
@@ -49,7 +49,7 @@ export const Blog = ({ authorName }) => {
               return (
                 <Column size="one-third-desktop half-tablet" narrow key={id}>
                   <Link to={"/blog/" + fields.slug}>
-                    <Card className={styles.cardEqualHeight}>
+                    <Card className="card-equal-height">
                       <Card.Header>
                         <Card.Header.Title align="centered">
                           <Title as="p" size={4}>
@@ -64,7 +64,7 @@ export const Blog = ({ authorName }) => {
                       </Card.Content>
                       <Card.Footer
                         as="footer"
-                        className={`stlyes.cardEqualHeight ${styles.cardFooter}`}
+                        className="card-equal-height card-footer"
                       >
                         <Card.Footer.Item as="p">
                           {!!frontmatter.tags
@@ -90,6 +90,9 @@ export const Blog = ({ authorName }) => {
               )
             })}
           </Column.Group>
+          <Title textAlign="centered" subtitle>
+            <Link to="/blog">Read more <IconSelector icon="angleright" /></Link>
+          </Title>
         </Container>
       </Column>
     </Section>
