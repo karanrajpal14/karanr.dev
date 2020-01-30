@@ -7,6 +7,8 @@ import { About } from "../components/About"
 import { Projects } from "../components/Projects"
 import { Blog } from "../components/Blog"
 import { Contact } from "../components/Contact"
+import { Work } from "../components/Work"
+import { Skills } from "../components/Skills"
 
 export default ({ data }) => {
   const {
@@ -42,7 +44,9 @@ export default ({ data }) => {
         linkedinUsername={linkedinUsername}
       />
       <About />
+      <Work />
       <Projects />
+      <Skills />
       <Blog />
       <Contact />
     </Layout>
