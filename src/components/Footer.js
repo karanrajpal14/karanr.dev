@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Footer as RBXFooter, Content, Column } from "rbx"
-import { FaHeart } from "react-icons/fa"
 import { useNavbarContent } from "../hooks/useNavbarContent"
 import footerStyles from "./footer.module.scss"
+import { IconSelector } from "./IconSelector"
 
 export const Footer = ({ authorName }) => {
   const { nodes } = useNavbarContent()
@@ -31,8 +31,11 @@ export const Footer = ({ authorName }) => {
       <Content textAlign="centered">
         <Column.Group centered>{generateFooterItems()}</Column.Group>
         <p>
-          Built with <FaHeart color="red" /> by <Link to="/">{authorName}</Link>{" "}
-          - ©️ {new Date().getFullYear()}
+          Built using{" "}
+          <a href="www.gatsbyjs.org">
+            <IconSelector icon="gatsby" size="1em" /> GatsbyJS
+          </a>{" "}
+          by <Link to="/">{authorName}</Link> - ©️ {new Date().getFullYear()}
         </p>
       </Content>
     </RBXFooter>
