@@ -4,7 +4,6 @@ import {
   Section,
   Column,
   Container,
-  Level,
   Box,
   Generic,
   Block,
@@ -13,7 +12,7 @@ import { IconSelector } from "./IconSelector"
 
 export const Skills = () => {
   return (
-    <Section backgroundColor="primary-light">
+    <Section backgroundColor="primary-light" id="skills">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Skills I've learned
@@ -21,15 +20,9 @@ export const Skills = () => {
         <Container fluid>
           {/* JavaScript Section */}
           <Column.Group centered vcentered>
-            <Column size="full">
-              <Level textAlign="centered">
-                <Level.Item>
-                  <IconSelector icon="javascript" />
-                </Level.Item>
-                <Level.Item>
-                  <Title textAlign="centered">JavaScript</Title>
-                </Level.Item>
-              </Level>
+            <Column size="full" textAlign="centered">
+              <IconSelector icon="javascript" />
+              <Title>JavaScript</Title>
               <Block />
               <Column.Group breakpoint="mobile" centered>
                 <Column narrow>
@@ -70,15 +63,9 @@ export const Skills = () => {
 
           {/* Python Section */}
           <Column.Group centered vcentered>
-            <Column size="full">
-              <Level textAlign="centered">
-                <Level.Item>
-                  <IconSelector icon="python" />
-                </Level.Item>
-                <Level.Item>
-                  <Title textAlign="centered">Python</Title>
-                </Level.Item>
-              </Level>
+            <Column size="full" textAlign="centered">
+              <IconSelector icon="python" />
+              <Title>Python</Title>
               <Block />
               <Column.Group breakpoint="mobile" centered>
                 <Column narrow>
@@ -103,15 +90,9 @@ export const Skills = () => {
 
           {/* Java Section */}
           <Column.Group centered vcentered>
-            <Column size="full">
-              <Level textAlign="centered">
-                <Level.Item>
-                  <IconSelector icon="java" />
-                </Level.Item>
-                <Level.Item>
-                  <Title textAlign="centered">Java</Title>
-                </Level.Item>
-              </Level>
+            <Column size="full" textAlign="centered">
+              <IconSelector icon="java" />
+              <Title textAlign="centered">Java</Title>
               <Block />
               <Column.Group breakpoint="mobile" centered>
                 <Column narrow>

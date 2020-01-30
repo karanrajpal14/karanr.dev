@@ -7,34 +7,8 @@ import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { Section, Container, Title, Image, Column, Card, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
-
-const StyledImage = styled(Img)`
-  border-radius: 5px 5px 0 0 !important;
-`
-
-const StyledCard = styled(Card)`
-  border-radius: 5px !important;
-  transition: all 0.3s ease-in-out;
-
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    border-radius: 5px !important;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  &:hover {
-    transform: scale(1.005, 1.005);
-    &::after {
-      opacity: 1;
-    }
-  }
-`
+import { StyledCard } from "../components/StyledCard"
+import { StyledImage } from "../components/StyledImage"
 
 export default ({ data }) => {
   const {

@@ -1,8 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import { Section, Container, Title, Column, Image, Card, Generic } from "rbx"
+import { Section, Container, Title, Column, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
+import { StyledCard } from "./StyledCard"
 
 export const Blog = ({ authorName }) => {
   const data = useStaticQuery(graphql`
@@ -38,7 +39,7 @@ export const Blog = ({ authorName }) => {
     }
   `)
   return (
-    <Section backgroundColor="light">
+    <Section id="recent-posts">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Recent blog posts
@@ -49,24 +50,24 @@ export const Blog = ({ authorName }) => {
               return (
                 <Column size="one-third-desktop half-tablet" narrow key={id}>
                   <Link to={"/blog/" + fields.slug}>
-                    <Card className="card-equal-height">
-                      <Card.Header>
-                        <Card.Header.Title align="centered">
+                    <StyledCard className="card-equal-height">
+                      <StyledCard.Header>
+                        <StyledCard.Header.Title align="centered">
                           <Title as="p" size={4}>
                             {frontmatter.title}
                           </Title>
-                        </Card.Header.Title>
-                      </Card.Header>
-                      <Card.Content>
+                        </StyledCard.Header.Title>
+                      </StyledCard.Header>
+                      <StyledCard.Content>
                         <Title as="p" subtitle size={5}>
                           {excerpt}
                         </Title>
-                      </Card.Content>
-                      <Card.Footer
+                      </StyledCard.Content>
+                      <StyledCard.Footer
                         as="footer"
                         className="card-equal-height card-footer"
                       >
-                        <Card.Footer.Item as="p">
+                        <StyledCard.Footer.Item as="p">
                           {!!frontmatter.tags
                             ? frontmatter.tags.map(tag => {
                                 return (
@@ -82,9 +83,9 @@ export const Blog = ({ authorName }) => {
                                 )
                               })
                             : null}
-                        </Card.Footer.Item>
-                      </Card.Footer>
-                    </Card>
+                        </StyledCard.Footer.Item>
+                      </StyledCard.Footer>
+                    </StyledCard>
                   </Link>
                 </Column>
               )

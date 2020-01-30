@@ -15,6 +15,7 @@ import {
   Card,
   Content,
   Generic,
+  Title,
 } from "rbx"
 import * as yup from "yup"
 import { FaEnvelope, FaUser, FaTelegramPlane } from "react-icons/fa"
@@ -44,7 +45,8 @@ const contactSchema = yup.object().shape({
 const handleOnSubmit = (values, actions) => {
   axios({
     method: "POST",
-    url: "https://hgwaf31jxa.execute-api.us-west-2.amazonaws.com/dev?format=json",
+    url:
+      "https://hgwaf31jxa.execute-api.us-west-2.amazonaws.com/dev?format=json",
     data: values,
   })
     .then(response => {
@@ -58,24 +60,25 @@ const handleOnSubmit = (values, actions) => {
 
 export const Contact = () => {
   return (
-    <Section id="contact">
+    <Section id="contact" backgroundColor="primary-light">
       <Generic as={Container} textAlign="centered">
         <Column.Group centered>
           <Column size="half">
             <Card id="contact-card">
               <Card.Content as={Content}>
-                <h3 className="title has-text-centered">Get in touch!</h3>
-                <p>
+                <Title as="h3" textAlign="centered">
+                  Get in touch!
+                </Title>
+                <Title as="p" subtitle>
                   Want to talk about tech, games or comics? Or anything else at
-                  all?
-                </p>
-                <p>Hit me up. We'll have a chat :D</p>
+                  all? Hit me up. We'll have a chat :D
+                </Title>
                 <Formik
                   initialValues={{
-                    name: "Karen Rejpal",
-                    email: "email@lol.com",
+                    name: "",
+                    email: "",
                     message:
-                      "Tell me, what ails you?Tell me, what ails you?Tell me, what ails you?Tell me, what ails you?",
+                      "",
                   }}
                   validationSchema={contactSchema}
                   onSubmit={handleOnSubmit}
@@ -160,7 +163,7 @@ export const Contact = () => {
                                 <Button.Group align="centered">
                                   <Button
                                     type="submit"
-                                    color="black"
+                                    color="primary"
                                     size="medium"
                                   >
                                     <Icon size="small" align="left">

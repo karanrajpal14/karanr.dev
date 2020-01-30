@@ -1,9 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import { Section, Container, Title, Column, Image, Card, Generic } from "rbx"
-import styles from "./projects.module.scss"
+import { Section, Container, Title, Column, Image, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
+import { StyledCard } from "./StyledCard"
 
 export const Projects = ({ authorName }) => {
   const data = useStaticQuery(graphql`
@@ -39,7 +39,7 @@ export const Projects = ({ authorName }) => {
     }
   `)
   return (
-    <Section backgroundColor="white">
+    <Section backgroundColor="white" id="recent-projects">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Projects I've worked on
@@ -50,8 +50,8 @@ export const Projects = ({ authorName }) => {
               return (
                 <Column size="one-third-desktop half-tablet" narrow key={id}>
                   <Link to={"/projects/" + fields.slug}>
-                    <Card className={styles.cardEqualHeight}>
-                      <Card.Image>
+                    <StyledCard className="card-equal-height">
+                      <StyledCard.Image>
                         <Image.Container>
                           {!!frontmatter.cover ? (
                             <Img
@@ -59,24 +59,24 @@ export const Projects = ({ authorName }) => {
                             />
                           ) : null}
                         </Image.Container>
-                      </Card.Image>
-                      <Card.Header>
-                        <Card.Header.Title align="centered">
+                      </StyledCard.Image>
+                      <StyledCard.Header>
+                        <StyledCard.Header.Title align="centered">
                           <Title as="p" size={4}>
                             {frontmatter.title}
                           </Title>
-                        </Card.Header.Title>
-                      </Card.Header>
-                      <Card.Content>
+                        </StyledCard.Header.Title>
+                      </StyledCard.Header>
+                      <StyledCard.Content>
                         <Title as="p" subtitle size={5}>
                           {excerpt}
                         </Title>
-                      </Card.Content>
-                      <Card.Footer
+                      </StyledCard.Content>
+                      <StyledCard.Footer
                         as="footer"
-                        className={`stlyes.cardEqualHeight ${styles.cardFooter}`}
+                        className="card-equal-height card-footer"
                       >
-                        <Card.Footer.Item as="p">
+                        <StyledCard.Footer.Item as="p">
                           {!!frontmatter.tags
                             ? frontmatter.tags.map(tag => {
                                 return (
@@ -92,17 +92,21 @@ export const Projects = ({ authorName }) => {
                                 )
                               })
                             : null}
-                        </Card.Footer.Item>
-                      </Card.Footer>
-                    </Card>
+                        </StyledCard.Footer.Item>
+                      </StyledCard.Footer>
+                    </StyledCard>
                   </Link>
                 </Column>
               )
             })}
           </Column.Group>
-          <Title textAlign="centered" subtitle>
-            <Link to="/projects">See more <IconSelector icon="angleright" /></Link>
-          </Title>
+          {data.allMdx.nodes.length > 6 ? (
+            <Title textAlign="centered" subtitle>
+              <Link to="/projects">
+                See more <IconSelector icon="angleright" />
+              </Link>
+            </Title>
+          ) : null}
         </Container>
       </Column>
     </Section>

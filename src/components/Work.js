@@ -4,7 +4,7 @@ import { IconSelector } from "./IconSelector"
 
 export const Work = () => {
   return (
-    <Section backgroundColor="primary-light">
+    <Section backgroundColor="primary-light" id="work">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Where I've worked

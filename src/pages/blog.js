@@ -5,6 +5,7 @@ import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { Section, Container, Column, Title, Card, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
+import { StyledCard } from "../components/StyledCard"
 
 export default ({ data }) => {
   const {
@@ -37,24 +38,24 @@ export default ({ data }) => {
             {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
               <Column size="one-fourth-desktop half-tablet" key={id}>
                 <Link to={`/blog/${fields.slug}`}>
-                  <Card className="card-equal-height">
-                    <Card.Header>
-                      <Card.Header.Title align="centered">
+                  <StyledCard className="card-equal-height">
+                    <StyledCard.Header>
+                      <StyledCard.Header.Title align="centered">
                         <Title as="h2" size={4}>
                           {frontmatter.title}
                         </Title>
-                      </Card.Header.Title>
-                    </Card.Header>
-                    <Card.Content>
+                      </StyledCard.Header.Title>
+                    </StyledCard.Header>
+                    <StyledCard.Content>
                       <Title as="p" subtitle size={5}>
                         {excerpt}
                       </Title>
-                    </Card.Content>
-                    <Card.Footer
+                    </StyledCard.Content>
+                    <StyledCard.Footer
                       as="footer"
                       className="card-equal-height card-footer"
                     >
-                      <Card.Footer.Item as="p">
+                      <StyledCard.Footer.Item as="p">
                         {!!frontmatter.tags
                           ? frontmatter.tags.map(tag => {
                               return (
@@ -70,9 +71,9 @@ export default ({ data }) => {
                               )
                             })
                           : null}
-                      </Card.Footer.Item>
-                    </Card.Footer>
-                  </Card>
+                      </StyledCard.Footer.Item>
+                    </StyledCard.Footer>
+                  </StyledCard>
                 </Link>
               </Column>
             ))}

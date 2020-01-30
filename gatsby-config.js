@@ -7,18 +7,29 @@ module.exports = {
     siteLanguage: `en-GB`,
     siteLocale: `en_gb`,
     authorName: `Karan Rajpal`,
-    designation: `Full-stack Developer`,
+    designation: `Software Developer`,
+    careerStartYear: `2016`,
     twitterUsername: `@karanrajpal14`,
     githubUsername: `karanrajpal14`,
-    linkedinUsername: `karan-rajpal`
+    linkedinUsername: `karan-rajpal`,
   },
 
   plugins: [
+    `gatsby-v2-plugin-page-transitions`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `tomato`,
+        // Disable the loading spinner.
+        showSpinner: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
