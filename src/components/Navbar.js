@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { Navbar as RBXNavbar } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
 import navbarStyles from "./navbar.module.scss"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 export const Navbar = () => {
   const { nodes } = useNavbarContent()
@@ -43,7 +44,7 @@ export const Navbar = () => {
       <RBXNavbar.Menu>
         <RBXNavbar.Segment align="end">
           {/* {generateNavbarItems()} */}
-          <RBXNavbar.Item dropdown>
+          <RBXNavbar.Item as="div" dropdown>
             <RBXNavbar.Link>
               <Link
                 to="/"
@@ -54,7 +55,7 @@ export const Navbar = () => {
               </Link>
             </RBXNavbar.Link>
             <RBXNavbar.Dropdown>
-              <RBXNavbar.Item>
+              <RBXNavbar.Item as="div">
                 <Link
                   to="/#about"
                   className={navbarStyles.navItem}
@@ -63,7 +64,7 @@ export const Navbar = () => {
                   About me
                 </Link>
               </RBXNavbar.Item>
-              <RBXNavbar.Item>
+              <RBXNavbar.Item as="div">
                 <Link
                   to="/#work"
                   className={navbarStyles.navItem}
@@ -72,7 +73,7 @@ export const Navbar = () => {
                   Work
                 </Link>
               </RBXNavbar.Item>
-              <RBXNavbar.Item>
+              <RBXNavbar.Item as="div">
                 <Link
                   to="/#recent-projects"
                   className={navbarStyles.navItem}
@@ -81,7 +82,7 @@ export const Navbar = () => {
                   Recent projects
                 </Link>
               </RBXNavbar.Item>
-              <RBXNavbar.Item>
+              <RBXNavbar.Item as="div">
                 <Link
                   to="/#skills"
                   className={navbarStyles.navItem}
@@ -90,7 +91,7 @@ export const Navbar = () => {
                   Skills
                 </Link>
               </RBXNavbar.Item>
-              <RBXNavbar.Item>
+              <RBXNavbar.Item as="div">
                 <Link
                   to="/#recent-posts"
                   className={navbarStyles.navItem}
@@ -99,7 +100,7 @@ export const Navbar = () => {
                   Recent blog posts
                 </Link>
               </RBXNavbar.Item>
-              <RBXNavbar.Item>
+              <RBXNavbar.Item as="div">
                 <Link
                   to="/#contact"
                   className={navbarStyles.navItem}
@@ -110,8 +111,24 @@ export const Navbar = () => {
               </RBXNavbar.Item>
             </RBXNavbar.Dropdown>
           </RBXNavbar.Item>
-          <RBXNavbar.Item>Projects</RBXNavbar.Item>
-          <RBXNavbar.Item>Blog</RBXNavbar.Item>
+          <RBXNavbar.Item as="div">
+            <Link
+              to="/projects"
+              className={navbarStyles.navItem}
+              activeClassName={navbarStyles.navItemActive}
+            >
+              Projects
+            </Link>
+          </RBXNavbar.Item>
+          <RBXNavbar.Item as="div">
+            <Link
+              to="/blog"
+              className={navbarStyles.navItem}
+              activeClassName={navbarStyles.navItemActive}
+            >
+              Blog
+            </Link>
+          </RBXNavbar.Item>
         </RBXNavbar.Segment>
       </RBXNavbar.Menu>
     </RBXNavbar>

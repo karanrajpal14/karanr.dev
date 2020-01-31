@@ -17,7 +17,7 @@ export const Projects = ({ authorName }) => {
       ) {
         nodes {
           id
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 100)
           frontmatter {
             title
             date(formatString: "YYYY MMMM Do")
@@ -69,7 +69,7 @@ export const Projects = ({ authorName }) => {
                       </StyledCard.Header>
                       <StyledCard.Content>
                         <Title as="p" subtitle size={5}>
-                          {excerpt}
+                          {excerpt.substring(frontmatter.title.length)}
                         </Title>
                       </StyledCard.Content>
                       <StyledCard.Footer
@@ -87,7 +87,10 @@ export const Projects = ({ authorName }) => {
                                     textColor="primary"
                                     key={tag}
                                   >
-                                    <IconSelector icon={tag} />
+                                    <IconSelector
+                                      icon={tag}
+                                      style={{ margin: "0.5em" }}
+                                    />
                                   </Generic>
                                 )
                               })

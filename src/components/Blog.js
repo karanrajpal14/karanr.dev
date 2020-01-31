@@ -60,7 +60,7 @@ export const Blog = ({ authorName }) => {
                       </StyledCard.Header>
                       <StyledCard.Content>
                         <Title as="p" subtitle size={5}>
-                          {excerpt}
+                          {excerpt.substring(frontmatter.title.length)}
                         </Title>
                       </StyledCard.Content>
                       <StyledCard.Footer
@@ -78,7 +78,7 @@ export const Blog = ({ authorName }) => {
                                     textColor="primary"
                                     key={tag}
                                   >
-                                    <IconSelector icon={tag} />
+                                    <IconSelector icon={tag} style={{ margin: "0.5em" }} />
                                   </Generic>
                                 )
                               })

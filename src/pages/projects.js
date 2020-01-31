@@ -40,11 +40,11 @@ export default ({ data }) => {
           <Column.Group multiline centered>
             {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
               <Column size="one-fourth-desktop half-tablet" key={id}>
-                <Link to={`/project/${fields.slug}`}>
+                <Link to={`/projects/${fields.slug}`}>
                   <StyledCard className="card-equal-height">
                     <Card.Image>
                       {!!frontmatter.cover ? (
-                        <Image.Container size={512}>
+                        <Image.Container>
                           <StyledImage
                             sizes={frontmatter.cover.childImageSharp.sizes}
                           />
@@ -60,7 +60,7 @@ export default ({ data }) => {
                     </Card.Header>
                     <Card.Content>
                       <Title as="p" subtitle size={5}>
-                        {excerpt}
+                        {excerpt.substring(frontmatter.title.length)}
                       </Title>
                     </Card.Content>
                     <Card.Footer
@@ -78,7 +78,7 @@ export default ({ data }) => {
                                   textColor="primary"
                                   key={tag}
                                 >
-                                  <IconSelector icon={tag} />
+                                  <IconSelector icon={tag} style={{ margin: "0.5em" }} />
                                 </Generic>
                               )
                             })
@@ -106,7 +106,7 @@ export const query = graphql`
     ) {
       nodes {
         id
-        excerpt(pruneLength: 250)
+        excerpt(pruneLength: 100)
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")

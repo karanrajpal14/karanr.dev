@@ -22,7 +22,7 @@ import { Python, Django, Flask } from "@icons-pack/react-simple-icons"
 import { Java, Android, Spring } from "@icons-pack/react-simple-icons"
 import { Buymeacoffee } from "@icons-pack/react-simple-icons"
 
-export const IconSelector = ({ icon, size }) => {
+export const IconSelector = ({ icon, size, style }) => {
   let selectedIcon = icon.toLowerCase()
   let iconSize = size != undefined ? size : "2em"
 
@@ -32,19 +32,19 @@ export const IconSelector = ({ icon, size }) => {
       <FaChevronRight color="#639" style={{ verticalAlign: "bottom" }} />
     ),
     angleright: <FaAngleDoubleRight style={{ verticalAlign: "bottom" }} />,
-    java: <Java color="#ED1D25" size={iconSize} />,
-    html: <Html5 color="#E34F26" size={iconSize} />,
-    css: <Css3 color="#1572B6" size={iconSize} />,
-    javascript: <Javascript color="#F7DF1E" size={iconSize} />,
-    react: <ReactJs color="#61DAFB" size={iconSize} />,
-    node: <NodeDotJs color="#339933" size={iconSize} />,
-    jquery: <Jquery color="#0769AD" size={iconSize} />,
-    gatsby: <Gatsby color="#663399" size={iconSize} />,
-    python: <Python color="#3776AB" size={iconSize} />,
-    django: <Django color="#092E20" size={iconSize} />,
-    flask: <Flask color="#000000" size={iconSize} />,
-    spring: <Spring color="#6DB33F" size={iconSize} />,
-    coffee: <Buymeacoffee color="#FF813F" />,
+    java: <Java color="#ED1D25" size={iconSize} style={style} />,
+    html: <Html5 color="#E34F26" size={iconSize} style={style} />,
+    css: <Css3 color="#1572B6" size={iconSize} style={style} />,
+    javascript: <Javascript color="#F7DF1E" size={iconSize} style={style} />,
+    react: <ReactJs color="#61DAFB" size={iconSize} style={style} />,
+    node: <NodeDotJs color="#339933" size={iconSize} style={style} />,
+    jquery: <Jquery color="#0769AD" size={iconSize} style={style} />,
+    gatsby: <Gatsby color="#663399" size={iconSize} style={style} />,
+    python: <Python color="#3776AB" size={iconSize} style={style} />,
+    django: <Django color="#092E20" size={iconSize} style={style} />,
+    flask: <Flask color="#000000" size={iconSize} style={style} />,
+    spring: <Spring color="#6DB33F" size={iconSize} style={style} />,
+    coffee: <Buymeacoffee color="#FF813F" style={style} />,
   }
 
   return icons[selectedIcon] != null ? (
