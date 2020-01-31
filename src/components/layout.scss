@@ -1,17 +1,19 @@
-// Add new color variables to the color map.
-@import "~bulma/sass/utilities/initial-variables.sass";
-@import "~bulma/sass/utilities/functions.sass";
-@import "~bulma/sass/utilities/derived-variables.sass";
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
 
 // Set your brand colors
 $purple: #639;
 
 // Update Bulma's global variables
-$primary: $purple;
-$link: $primary;
 
+$primary: $purple;
+$primary-invert: findColorInvert($purple);
 $primary-light: findLightColor($primary);
 $primary-light-invert: findColorInvert($primary-light);
+$primary-dark: findDarkColor($primary);
+$primary-dark-invert: findColorInvert($primary-dark);
+
+$link: $primary;
 
 // 4. Setup your Custom Colors
 $propelld: #172c82;
@@ -28,9 +30,13 @@ $github: #333;
 $github-invert: findColorInvert($github);
 
 $addColors: (
-  "primary-light": (
+  "primary": (
+    $primary,
+    $primary-invert,
     $primary-light,
     $primary-light-invert,
+    $primary-dark,
+    $primary-dark-invert,
   ),
   "twitter": (
     $twitter,
@@ -57,12 +63,14 @@ $addColors: (
     $propelld-invert,
   ),
 );
-$colors: map-merge($colors, $addColors);
+
+@import "~bulma/sass/utilities/derived-variables.sass";
+$colors: mergeColorMaps($colors, $addColors);
 
 // Import only what you need from Bulma
 @import "~bulma/sass/utilities/animations.sass";
-@import "~bulma/sass/utilities/controls.sass";
 @import "~bulma/sass/utilities/mixins.sass";
+@import "~bulma/sass/utilities/controls.sass";
 
 @import "~bulma/sass/base/_all.sass";
 
@@ -77,11 +85,12 @@ $colors: map-merge($colors, $addColors);
 
 @import "~bulma/sass/form/_all.sass";
 
-@import "~bulma/sass/grid/columns.sass";
-
 @import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/dropdown.sass";
 @import "~bulma/sass/components/card.sass";
 @import "~bulma/sass/components/level.sass";
+
+@import "~bulma/sass/grid/columns.sass";
 
 @import "~bulma/sass/layout/_all.sass";
 
@@ -167,7 +176,7 @@ main {
   top: 0;
   height: 100%;
   width: 51%;
-  background: #639;
+  background: $primary;
 }
 
 .chevron:before {
@@ -196,11 +205,5 @@ main {
   100% {
     opacity: 0;
     transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
-  }
-}
-
-@keyframes pulse {
-  to {
-    opacity: 1;
   }
 }
