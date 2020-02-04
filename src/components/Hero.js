@@ -71,11 +71,23 @@ const Hero = ({
     <RBXHero size="fullheight" color="white" className={heroStyles.heroBg}>
       <RBXHero.Body>
         <Generic as={Container} textAlign="centered">
-          <Image.Container>
+          <Image.Container
+            data-sal="zoom-in"
+            data-sal-duration="500"
+            data-sal-easing="ease"
+          >
             <Image as={Img} fixed={data.allImageSharp.nodes[0].fixed} rounded />
           </Image.Container>
 
-          <Title as="h1" className="elements-effect" size={1}>
+          <Title
+            as="h1"
+            className="elements-effect"
+            size={1}
+            data-sal="fade"
+            data-sal-delay="300"
+            data-sal-duration="1000"
+            data-sal-easing="ease"
+          >
             <Generic as="span" className="text-wrapper">
               <Generic as="span" className="animated-title">
                 {prepareAnimatedText().wrappedTitle}
@@ -87,7 +99,17 @@ const Hero = ({
             </Generic>
           </Title>
 
-          <Title as="h2" className="elements-effect" size={4} subtitle spaced>
+          <Title
+            as="h2"
+            className="elements-effect"
+            size={4}
+            subtitle
+            spaced
+            data-sal="fade"
+            data-sal-delay="600"
+            data-sal-duration="1000"
+            data-sal-easing="ease"
+          >
             <Generic as="span" className="text-wrapper">
               <Generic as="span" className="animated-subtitle">
                 {prepareAnimatedText().wrappedSubtitle}
@@ -106,7 +128,12 @@ const Hero = ({
               style: { margin: "0.5em" },
             }}
           >
-            <Level>
+            <Level
+              data-sal="fade"
+              data-sal-delay="800"
+              data-sal-duration="2000"
+              data-sal-easing="ease"
+            >
               <Level.Item textAlign="centered">
                 <Generic as="div">
                   <Heading>GitHub</Heading>
@@ -119,6 +146,7 @@ const Hero = ({
                   </a>
                 </Generic>
               </Level.Item>
+
               <Level.Item textAlign="centered">
                 <Generic as="div">
                   <Heading>LinkedIn</Heading>
@@ -145,6 +173,7 @@ const Hero = ({
                   </a>
                 </Generic>
               </Level.Item>
+
               <Level.Item textAlign="centered">
                 <Generic as="div">
                   <Heading>Resume</Heading>
@@ -162,10 +191,22 @@ const Hero = ({
           </IconContext.Provider>
 
           <IconContext.Provider value={{ size: "2em", color: "#0a0a0a" }}>
-            <Generic as="div">
+            <Generic
+              as="div"
+              data-sal="fade"
+              data-sal-delay="900"
+              data-sal-duration="2000"
+              data-sal-easing="ease"
+            >
               <FaChevronDown className="chevron" />
             </Generic>
-            <Generic as="div">
+            <Generic
+              as="div"
+              data-sal="fade"
+              data-sal-delay="900"
+              data-sal-duration="2000"
+              data-sal-easing="ease"
+            >
               <FaChevronDown className="chevron" />
             </Generic>
           </IconContext.Provider>

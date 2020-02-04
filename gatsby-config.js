@@ -22,6 +22,14 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+          threshold: 0.5, // Percentage of an element's area that needs to be visible to launch animation
+          once: true, // Defines if animation needs to be launched once
+          disable: false // Flag for disabling animations
+      }
+    },
+    {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         // Setting a color is optional.
