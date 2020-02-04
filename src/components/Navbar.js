@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Navbar as RBXNavbar } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
 import navbarStyles from "./navbar.module.scss"
-import scrollTo from "gatsby-plugin-smoothscroll"
 
 export const Navbar = () => {
   const { nodes } = useNavbarContent()
