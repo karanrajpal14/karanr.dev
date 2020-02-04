@@ -1,18 +1,8 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
 
-// Update Bulma's global variables
-
-$primary: #663399;
-$primary-invert: findColorInvert($primary);
-$primary-light: findLightColor($primary);
-$primary-light-invert: findColorInvert($primary-light);
-$primary-dark: findDarkColor($primary);
-$primary-dark-invert: findColorInvert($primary-dark);
-
-$link: $primary;
-
 // 4. Setup your Custom Colors
+$main-light: lighten($color: #663399, $amount: 50);
 $propelld: #172c82;
 $propelld-invert: findColorInvert($propelld);
 $iisc: #231f20;
@@ -27,18 +17,6 @@ $github: #333;
 $github-invert: findColorInvert($github);
 
 $addColors: (
-  "primary": (
-    $primary,
-    $primary-invert,
-  ),
-  "primary-light": (
-    $primary-light,
-    $primary-light-invert,
-  ),
-  "primary-dark": (
-    $primary-dark,
-    $primary-dark-invert,
-  ),
   "twitter": (
     $twitter,
     $twitter-invert,
@@ -100,6 +78,10 @@ $colors: mergeColorMaps($colors, $addColors);
 @import "~bulma-timeline/dist/css/bulma-timeline.sass";
 
 @import "~rbx/rbx.sass";
+
+#about {
+  background-color: $main-light
+}
 
 // Fixing Bulma styles interfering with PrisimJS
 .tag {
