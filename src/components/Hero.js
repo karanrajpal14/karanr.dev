@@ -100,7 +100,11 @@ const Hero = ({
           </Title>
 
           <IconContext.Provider
-            value={{ size: "3em", color: "#0a0a0a", style: { margin: "0.5em" } }}
+            value={{
+              size: "3em",
+              color: "#0a0a0a",
+              style: { margin: "0.5em" },
+            }}
           >
             <Level>
               <Level.Item textAlign="centered">
@@ -165,7 +169,6 @@ const Hero = ({
               <FaChevronDown className="chevron" />
             </Generic>
           </IconContext.Provider>
-
         </Generic>
       </RBXHero.Body>
     </RBXHero>

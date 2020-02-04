@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import { Section, Container, Title, Column, Image, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
 import { StyledCard } from "./StyledCard"
+import { StyledImage } from "./StyledImage"
 
 export const Projects = ({ authorName }) => {
   const data = useStaticQuery(graphql`
@@ -54,7 +55,7 @@ export const Projects = ({ authorName }) => {
                       <StyledCard.Image>
                         <Image.Container>
                           {!!frontmatter.cover ? (
-                            <Img
+                            <StyledImage
                               sizes={frontmatter.cover.childImageSharp.sizes}
                             />
                           ) : null}

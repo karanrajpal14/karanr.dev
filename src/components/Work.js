@@ -4,7 +4,7 @@ import { IconSelector } from "./IconSelector"
 
 export const Work = () => {
   return (
-    <Section backgroundColor="primary-light" id="work">
+    <Section className="primary-light-bg" id="work">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Where I've worked
@@ -24,7 +24,7 @@ export const Work = () => {
                   <Card.Content>
                     <Title textColor="light">Tech Mahindra</Title>
                     <Title textColor="light" subtitle>
-                      Assocaite Software Engineer
+                      Associate Software Engineer
                     </Title>
                   </Card.Content>
                 </Card>

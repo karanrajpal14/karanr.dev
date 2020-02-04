@@ -60,13 +60,13 @@ const handleOnSubmit = (values, actions) => {
 
 export const Contact = () => {
   return (
-    <Section id="contact" backgroundColor="primary-light">
+    <Section id="contact" className="primary-light-bg">
       <Generic as={Container} textAlign="centered">
         <Column.Group centered>
           <Column size="half">
             <Card id="contact-card">
               <Card.Content as={Content}>
-                <Title as="h3" textAlign="centered">
+                <Title as="h3" textAlign="centered" spaced>
                   Get in touch!
                 </Title>
                 <Title as="p" subtitle>
@@ -163,7 +163,7 @@ export const Contact = () => {
                                 <Button.Group align="centered">
                                   <Button
                                     type="submit"
-                                    color="primary"
+                                    className="primary-bg"
                                     size="medium"
                                   >
                                     <Icon size="small" align="left">

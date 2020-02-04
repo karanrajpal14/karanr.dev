@@ -2,7 +2,10 @@
 @import "~bulma/sass/utilities/functions";
 
 // 4. Setup your Custom Colors
-$main-light: lighten($color: #663399, $amount: 50);
+$main: #663399;
+$main-light: lighten($color: $main, $amount: 56);
+$link: $main;
+
 $propelld: #172c82;
 $propelld-invert: findColorInvert($propelld);
 $iisc: #231f20;
@@ -79,7 +82,12 @@ $colors: mergeColorMaps($colors, $addColors);
 
 @import "~rbx/rbx.sass";
 
-#about {
+.primary-bg {
+  color: white;
+  background-color: $main;
+}
+
+.primary-light-bg {
   background-color: $main-light
 }
 

@@ -12,7 +12,7 @@ import { IconSelector } from "./IconSelector"
 
 export const Skills = () => {
   return (
-    <Section backgroundColor="primary-light" id="skills">
+    <Section className="primary-light-bg" id="skills">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Skills I've learned
