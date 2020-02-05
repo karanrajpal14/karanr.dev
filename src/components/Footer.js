@@ -27,7 +27,13 @@ export const Footer = ({ authorName }) => {
   }
 
   return (
-    <RBXFooter as="footer" backgroundColor="white">
+    <RBXFooter
+      as="footer"
+      backgroundColor="white"
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Content textAlign="centered">
         <Column.Group centered>{generateFooterItems()}</Column.Group>
         <p>

@@ -26,7 +26,15 @@ export const Navbar = () => {
   }
 
   return (
-    <RBXNavbar color="white" as="header" className={navbarStyles.navbar}>
+    <RBXNavbar
+      color="white"
+      as="header"
+      fixed="top"
+      className={navbarStyles.navbar}
+      data-sal="fade"
+      data-sal-duration="500"
+      data-sal-easing="ease"
+    >
       <RBXNavbar.Brand>
         <RBXNavbar.Item as="div">
           <Link to="/">

@@ -60,7 +60,13 @@ const handleOnSubmit = (values, actions) => {
 
 export const Contact = () => {
   return (
-    <Section id="contact" className="primary-light-bg">
+    <Section
+      id="contact"
+      className="primary-light-bg"
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Generic as={Container} textAlign="centered">
         <Column.Group centered>
           <Column size="half">
@@ -77,8 +83,7 @@ export const Contact = () => {
                   initialValues={{
                     name: "",
                     email: "",
-                    message:
-                      "",
+                    message: "",
                   }}
                   validationSchema={contactSchema}
                   onSubmit={handleOnSubmit}

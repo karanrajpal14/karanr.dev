@@ -39,7 +39,12 @@ export const Blog = ({ authorName }) => {
     }
   `)
   return (
-    <Section id="recent-posts">
+    <Section
+      id="recent-posts"
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Recent blog posts
@@ -78,7 +83,10 @@ export const Blog = ({ authorName }) => {
                                     textColor="primary"
                                     key={tag}
                                   >
-                                    <IconSelector icon={tag} style={{ margin: "0.5em" }} />
+                                    <IconSelector
+                                      icon={tag}
+                                      style={{ margin: "0.5em" }}
+                                    />
                                   </Generic>
                                 )
                               })
@@ -92,7 +100,9 @@ export const Blog = ({ authorName }) => {
             })}
           </Column.Group>
           <Title textAlign="centered" subtitle>
-            <Link to="/blog">Read more <IconSelector icon="angleright" /></Link>
+            <Link to="/blog">
+              Read more <IconSelector icon="angleright" />
+            </Link>
           </Title>
         </Container>
       </Column>

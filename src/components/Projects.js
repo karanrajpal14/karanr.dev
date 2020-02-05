@@ -40,7 +40,13 @@ export const Projects = ({ authorName }) => {
     }
   `)
   return (
-    <Section backgroundColor="white" id="recent-projects">
+    <Section
+      backgroundColor="white"
+      id="recent-projects"
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Projects I've worked on
