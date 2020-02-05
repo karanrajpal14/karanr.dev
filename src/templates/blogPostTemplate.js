@@ -2,11 +2,10 @@ import React from "react"
 import SEO from "react-seo-component"
 import { Layout } from "../components/Layout"
 import { graphql, Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Img from "gatsby-image"
-import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import { Container, Title, Divider, Button, Icon, Column, Section, Image } from "rbx"
+import { Container, Title, Divider, Button, Icon, Column, Section } from "rbx"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 export default ({ data, pageContext }) => {
@@ -38,10 +37,10 @@ export default ({ data, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <Section>
+      <Section id="top">
         <Container>
           <Title>{frontmatter.title}</Title>
-          <Title subtitle>{frontmatter.date}</Title>
+          <Title subtitle size={5}>{frontmatter.date}</Title>
           {/* {!!frontmatter.cover ? (
             <Image.Container size={512}>
               <Img sizes={frontmatter.cover.childImageSharp.sizes} />
@@ -59,7 +58,7 @@ export default ({ data, pageContext }) => {
                       <Icon size="small">
                         <FaChevronLeft />
                       </Icon>
-                      <p>{previous.frontmatter.title}</p>
+                      <Title size={6}>{previous.frontmatter.title}</Title>
                     </Button>
                   )}
                 </React.Fragment>
@@ -67,7 +66,9 @@ export default ({ data, pageContext }) => {
             </Column>
 
             <Column narrow>
-              <Button as={Link}>Scroll to top</Button>
+              <Button as={AnchorLink} to={`/blog${fields.slug}/#top`}>
+                Scroll to top
+              </Button>
             </Column>
 
             <Column narrow>
@@ -78,7 +79,7 @@ export default ({ data, pageContext }) => {
                       <Icon size="small">
                         <FaChevronRight />
                       </Icon>
-                      <p>{next.frontmatter.title}</p>
+                      <Title size={6}>{next.frontmatter.title}</Title>
                     </Button>
                   )}
                 </React.Fragment>

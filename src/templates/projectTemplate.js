@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "react-seo-component"
 import { Layout } from "../components/Layout"
 import { graphql, Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -47,10 +48,12 @@ export default ({ data, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <Section>
+      <Section id="#top">
         <Container>
           <Title>{title}</Title>
-          <Title subtitle>{date}</Title>
+          <Title size={5} subtitle>
+            {date}
+          </Title>
           <Divider />
           {!!frontmatter.cover ? (
             <Img sizes={frontmatter.cover.childImageSharp.sizes} />
@@ -67,7 +70,7 @@ export default ({ data, pageContext }) => {
                       <Icon size="small">
                         <FaChevronLeft />
                       </Icon>
-                      <p>{previous.frontmatter.title}</p>
+                      <Title size={6}>{previous.frontmatter.title}</Title>
                     </Button>
                   )}
                 </React.Fragment>
@@ -75,7 +78,9 @@ export default ({ data, pageContext }) => {
             </Column>
 
             <Column narrow>
-              <Button as={Link}>Scroll to top</Button>
+              <Button as={AnchorLink} to={`/projects${fields.slug}/#top`}>
+                Scroll to top
+              </Button>
             </Column>
 
             <Column narrow>
@@ -86,7 +91,7 @@ export default ({ data, pageContext }) => {
                       <Icon size="small">
                         <FaChevronRight />
                       </Icon>
-                      <p>{next.frontmatter.title}</p>
+                      <Title size={6}>{next.frontmatter.title}</Title>
                     </Button>
                   )}
                 </React.Fragment>

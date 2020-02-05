@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Navbar as RBXNavbar } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
 import navbarStyles from "./navbar.module.scss"
@@ -63,78 +64,78 @@ export const Navbar = () => {
             </RBXNavbar.Link>
             <RBXNavbar.Dropdown>
               <RBXNavbar.Item as="div">
-                <Link
+                <AnchorLink
                   to="/#about"
                   className={navbarStyles.navItem}
                   activeClassName={navbarStyles.navItemActive}
                 >
                   About me
-                </Link>
+                </AnchorLink>
               </RBXNavbar.Item>
               <RBXNavbar.Item as="div">
-                <Link
+                <AnchorLink
                   to="/#work"
                   className={navbarStyles.navItem}
                   activeClassName={navbarStyles.navItemActive}
                 >
                   Work
-                </Link>
+                </AnchorLink>
               </RBXNavbar.Item>
               <RBXNavbar.Item as="div">
-                <Link
+                <AnchorLink
                   to="/#recent-projects"
                   className={navbarStyles.navItem}
                   activeClassName={navbarStyles.navItemActive}
                 >
                   Recent projects
-                </Link>
+                </AnchorLink>
               </RBXNavbar.Item>
               <RBXNavbar.Item as="div">
-                <Link
+                <AnchorLink
                   to="/#skills"
                   className={navbarStyles.navItem}
                   activeClassName={navbarStyles.navItemActive}
                 >
                   Skills
-                </Link>
+                </AnchorLink>
               </RBXNavbar.Item>
               <RBXNavbar.Item as="div">
-                <Link
+                <AnchorLink
                   to="/#recent-posts"
                   className={navbarStyles.navItem}
                   activeClassName={navbarStyles.navItemActive}
                 >
                   Recent blog posts
-                </Link>
+                </AnchorLink>
               </RBXNavbar.Item>
               <RBXNavbar.Item as="div">
-                <Link
+                <AnchorLink
                   to="/#contact"
                   className={navbarStyles.navItem}
                   activeClassName={navbarStyles.navItemActive}
                 >
                   Contact
-                </Link>
+                </AnchorLink>
               </RBXNavbar.Item>
             </RBXNavbar.Dropdown>
           </RBXNavbar.Item>
           <RBXNavbar.Item as="div">
-            <Link
+            <AnchorLink
               to="/projects"
               className={navbarStyles.navItem}
               activeClassName={navbarStyles.navItemActive}
             >
               Projects
-            </Link>
+            </AnchorLink>
           </RBXNavbar.Item>
           <RBXNavbar.Item as="div">
-            <Link
+            <AnchorLink
               to="/blog"
               className={navbarStyles.navItem}
               activeClassName={navbarStyles.navItemActive}
             >
               Blog
-            </Link>
+            </AnchorLink>
           </RBXNavbar.Item>
         </RBXNavbar.Segment>
       </RBXNavbar.Menu>
