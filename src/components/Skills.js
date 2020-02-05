@@ -24,7 +24,7 @@ export const Skills = () => {
               <IconSelector icon="javascript" />
               <Title>JavaScript</Title>
               <Block />
-              <Column.Group breakpoint="mobile" centered>
+              <Column.Group breakpoint="mobile" centered multiline>
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="react" />
@@ -67,7 +67,7 @@ export const Skills = () => {
               <IconSelector icon="python" />
               <Title>Python</Title>
               <Block />
-              <Column.Group breakpoint="mobile" centered>
+              <Column.Group breakpoint="mobile" centered multiline>
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="django" />
@@ -94,7 +94,7 @@ export const Skills = () => {
               <IconSelector icon="java" />
               <Title textAlign="centered">Java</Title>
               <Block />
-              <Column.Group breakpoint="mobile" centered>
+              <Column.Group breakpoint="mobile" centered multiline>
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="spring" />
