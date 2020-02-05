@@ -4,13 +4,19 @@ import { IconSelector } from "./IconSelector"
 
 export const Work = () => {
   return (
-    <Section className="primary-light-bg" id="work">
+    <Section
+      className="primary-light-bg"
+      id="work"
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Where I've worked
         </Title>
         <Container fluid>
-          <div className="timeline is-centered">
+          <div className="timeline">
             <header className="timeline-header">
               <span className="tag is-primary">2016</span>
             </header>
