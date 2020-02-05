@@ -26,8 +26,8 @@ export const Projects = ({ authorName }) => {
             cover {
               publicURL
               childImageSharp {
-                sizes(maxWidth: 1500, traceSVG: { color: "#639" }) {
-                  ...GatsbyImageSharpSizes_tracedSVG
+                fluid(maxWidth: 1500, traceSVG: { color: "#639" }) {
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }
@@ -56,14 +56,17 @@ export const Projects = ({ authorName }) => {
                         <Image.Container>
                           {!!frontmatter.cover ? (
                             <StyledImage
-                              sizes={frontmatter.cover.childImageSharp.sizes}
+                              fluid={{
+                                ...frontmatter.cover.childImageSharp.fluid,
+                                aspectRatio: 16 / 9,
+                              }}
                             />
                           ) : null}
                         </Image.Container>
                       </StyledCard.Image>
                       <StyledCard.Header>
                         <StyledCard.Header.Title align="centered">
-                          <Title as="p" size={4}>
+                          <Title as="p" size={4} textAlign="centered">
                             {frontmatter.title}
                           </Title>
                         </StyledCard.Header.Title>

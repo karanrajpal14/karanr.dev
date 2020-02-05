@@ -3,7 +3,10 @@
 
 // 4. Setup your Custom Colors
 $main: #663399;
-$main-light: lighten($color: $main, $amount: 56);
+$main-light: lighten(
+  $color: $main,
+  $amount: 56,
+);
 $link: $main;
 
 $propelld: #172c82;
@@ -89,7 +92,7 @@ $colors: mergeColorMaps($colors, $addColors);
 }
 
 .primary-light-bg {
-  background-color: $main-light
+  background-color: $main-light;
 }
 
 // Fixing Bulma styles interfering with PrisimJS
@@ -197,5 +200,11 @@ main {
   100% {
     opacity: 0;
     transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.card {
+  figure {
+    margin: 0 !important;
   }
 }

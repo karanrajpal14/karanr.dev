@@ -20,7 +20,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="react" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       ReactJS
                     </Title>
                   </Generic>
@@ -28,7 +28,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="node" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       NodeJS
                     </Title>
                   </Generic>
@@ -36,7 +36,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="gatsby" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       GatsbyJS
                     </Title>
                   </Generic>
@@ -44,7 +44,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="jquery" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       jQuery
                     </Title>
                   </Generic>
@@ -63,7 +63,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="django" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       Django
                     </Title>
                   </Generic>
@@ -71,7 +71,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="flask" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       Flask
                     </Title>
                   </Generic>
@@ -90,7 +90,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="spring" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       Spring
                     </Title>
                   </Generic>
@@ -98,7 +98,7 @@ export const Skills = () => {
                 <Column narrow>
                   <Generic as={Box} textAlign="centered">
                     <IconSelector icon="android" />
-                    <Title size="4" textAlign="center">
+                    <Title size="4" textAlign="centered">
                       Android
                     </Title>
                   </Generic>

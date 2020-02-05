@@ -46,7 +46,10 @@ export default ({ data }) => {
                       {!!frontmatter.cover ? (
                         <Image.Container>
                           <StyledImage
-                            sizes={frontmatter.cover.childImageSharp.sizes}
+                            fluid={{
+                              ...frontmatter.cover.childImageSharp.fluid,
+                              aspectRatio: 16 / 9,
+                            }}
                           />
                         </Image.Container>
                       ) : null}
@@ -78,7 +81,10 @@ export default ({ data }) => {
                                   textColor="primary"
                                   key={tag}
                                 >
-                                  <IconSelector icon={tag} style={{ margin: "0.5em" }} />
+                                  <IconSelector
+                                    icon={tag}
+                                    style={{ margin: "0.5em" }}
+                                  />
                                 </Generic>
                               )
                             })
@@ -106,7 +112,7 @@ export const query = graphql`
     ) {
       nodes {
         id
-        excerpt(pruneLength: 100)
+        excerpt(pruneLength: 150)
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
@@ -114,8 +120,8 @@ export const query = graphql`
           cover {
             publicURL
             childImageSharp {
-              sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
-                ...GatsbyImageSharpSizes_tracedSVG
+              fluid(maxWidth: 1500, traceSVG: { color: "#639" }) {
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
