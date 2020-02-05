@@ -120,22 +120,22 @@ export const Navbar = () => {
             </RBXNavbar.Dropdown>
           </RBXNavbar.Item>
           <RBXNavbar.Item as="div">
-            <AnchorLink
+            <Link
               to="/projects"
               className={navbarStyles.navItem}
               activeClassName={navbarStyles.navItemActive}
             >
               Projects
-            </AnchorLink>
+            </Link>
           </RBXNavbar.Item>
           <RBXNavbar.Item as="div">
-            <AnchorLink
+            <Link
               to="/blog"
               className={navbarStyles.navItem}
               activeClassName={navbarStyles.navItemActive}
             >
               Blog
-            </AnchorLink>
+            </Link>
           </RBXNavbar.Item>
         </RBXNavbar.Segment>
       </RBXNavbar.Menu>

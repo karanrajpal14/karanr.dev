@@ -15,18 +15,12 @@ module.exports = {
   },
 
   plugins: [
-    `gatsby-v2-plugin-page-transitions`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-anchor-links`,
-      options: {
-        offset: -20
-      },
-    },
+    `gatsby-plugin-anchor-links`,
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
