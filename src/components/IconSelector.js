@@ -1,11 +1,6 @@
 import React from "react"
 import {
   FaChevronRight,
-  FaAndroid,
-  FaJava,
-  FaJsSquare,
-  FaHtml5,
-  FaCss3Alt,
   FaExclamationCircle,
   FaAngleDoubleRight,
 } from "react-icons/fa"

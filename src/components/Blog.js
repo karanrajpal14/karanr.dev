@@ -39,12 +39,7 @@ export const Blog = ({ authorName }) => {
     }
   `)
   return (
-    <Section
-      id="recent-posts"
-      data-sal="fade"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
+    <Section id="recent-posts">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Recent blog posts

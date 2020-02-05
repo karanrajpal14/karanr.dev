@@ -9,12 +9,7 @@ export const About = ({ authorName }) => {
   let yearsDiff = date2 - date1
 
   return (
-    <Section
-      id="about"
-      data-sal="fade"
-      data-sal-duration="1500"
-      data-sal-easing="ease"
-    >
+    <Section id="about">
       <Column size="half" offset="one-quarter">
         <IconContext.Provider
           value={{ color: "#639", style: { verticalAlign: "bottom" } }}

@@ -4,13 +4,7 @@ import { IconSelector } from "./IconSelector"
 
 export const Skills = () => {
   return (
-    <Section
-      className="primary-light-bg"
-      id="skills"
-      data-sal="fade"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
+    <Section className="primary-light-bg" id="skills">
       <Column size="half" offset="one-quarter">
         <Title as="h2">
           <IconSelector icon="chevright" /> Skills I've learned

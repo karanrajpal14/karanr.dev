@@ -60,13 +60,7 @@ const handleOnSubmit = (values, actions) => {
 
 export const Contact = () => {
   return (
-    <Section
-      id="contact"
-      className="primary-light-bg"
-      data-sal="fade"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
+    <Section id="contact" className="primary-light-bg">
       <Generic as={Container} textAlign="centered">
         <Column.Group centered>
           <Column size="half">

@@ -32,9 +32,6 @@ export const Navbar = () => {
       as="header"
       fixed="top"
       className={navbarStyles.navbar}
-      data-sal="fade"
-      data-sal-duration="500"
-      data-sal-easing="ease"
     >
       <RBXNavbar.Brand>
         <RBXNavbar.Item as="div">
