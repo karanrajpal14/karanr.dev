@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import { Layout } from "../components/Layout"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import { Section, Container, Column, Title, Card, Generic } from "rbx"
+import { Section, Container, Column, Title, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
 import { StyledCard } from "../components/StyledCard"
 
@@ -29,7 +29,7 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <Section>
+      <Section className="navbar-margin">
         <Container>
           <Title as="h1">
             <IconSelector icon="chevright" /> All posts

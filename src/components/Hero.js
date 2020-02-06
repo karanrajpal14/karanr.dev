@@ -48,14 +48,14 @@ const Hero = ({
 
     ;[...title].forEach((letter, index) => {
       titleNode.push(
-        <span class="title-letter" key={index}>
+        <span className="title-letter" key={index}>
           {letter}
         </span>
       )
     })
     ;[...subtitle].forEach((letter, index) => {
       subtitleNode.push(
-        <span class="subtitle-letter" key={index}>
+        <span className="subtitle-letter" key={index}>
           {letter}
         </span>
       )

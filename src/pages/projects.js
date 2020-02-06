@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import styled from "styled-components"
 import { Layout } from "../components/Layout"
-import Img from "gatsby-image"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { Section, Container, Title, Image, Column, Card, Generic } from "rbx"
@@ -32,7 +30,7 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <Section>
+      <Section className="navbar-margin">
         <Container>
           <Title as="h1">
             <IconSelector icon="chevright" /> All projects

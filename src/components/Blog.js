@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from "gatsby-image"
 import { Section, Container, Title, Column, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
 import { StyledCard } from "./StyledCard"

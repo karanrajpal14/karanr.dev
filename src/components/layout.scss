@@ -203,8 +203,14 @@ main {
   }
 }
 
+// Fix image padding caused by Content's styling
 .card {
   figure {
     margin: 0 !important;
   }
+}
+
+// Navbar margin for fixed navbar
+.navbar-margin {
+  margin-top: $navbar-height / 2;
 }

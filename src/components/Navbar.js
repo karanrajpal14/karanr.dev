@@ -32,6 +32,7 @@ export const Navbar = () => {
       as="header"
       fixed="top"
       className={navbarStyles.navbar}
+      transparent
     >
       <RBXNavbar.Brand>
         <RBXNavbar.Item as="div">
@@ -49,7 +50,7 @@ export const Navbar = () => {
       <RBXNavbar.Menu>
         <RBXNavbar.Segment align="end">
           {/* {generateNavbarItems()} */}
-          <RBXNavbar.Item as="div" dropdown>
+          <RBXNavbar.Item as="div" dropdown hoverable>
             <RBXNavbar.Link>
               <Link
                 to="/"
@@ -59,7 +60,7 @@ export const Navbar = () => {
                 Home
               </Link>
             </RBXNavbar.Link>
-            <RBXNavbar.Dropdown>
+            <RBXNavbar.Dropdown boxed>
               <RBXNavbar.Item as="div">
                 <AnchorLink
                   to="/#about"

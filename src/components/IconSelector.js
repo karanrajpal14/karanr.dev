@@ -19,7 +19,7 @@ import { Buymeacoffee } from "@icons-pack/react-simple-icons"
 
 export const IconSelector = ({ icon, size, style }) => {
   let selectedIcon = icon.toLowerCase()
-  let iconSize = size != undefined ? size : "2em"
+  let iconSize = size !== undefined ? size : "2em"
 
   const icons = {
     android: <Android color="#3DDC84" size={iconSize} />,

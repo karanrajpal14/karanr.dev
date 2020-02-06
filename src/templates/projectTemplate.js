@@ -5,7 +5,6 @@ import { graphql, Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
-import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import {
   Container,
@@ -14,8 +13,7 @@ import {
   Button,
   Icon,
   Column,
-  Section,
-  Image,
+  Section
 } from "rbx"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 

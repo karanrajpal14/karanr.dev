@@ -3,6 +3,10 @@ import { Title, Section, Card, Column, Container } from "rbx"
 import { IconSelector } from "./IconSelector"
 
 export const Work = () => {
+  const isMobile = () => {
+    return "ontouchstart" in window || navigator.msMaxTouchPoints
+  }
+
   return (
     <Section className="primary-light-bg" id="work">
       <Column size="half" offset="one-quarter">
@@ -10,7 +14,7 @@ export const Work = () => {
           <IconSelector icon="chevright" /> Where I've worked
         </Title>
         <Container fluid>
-          <div className="timeline">
+          <div className={`timeline ${isMobile() ? "" : "is-centered"}`}>
             <header className="timeline-header">
               <span className="tag is-primary">2016</span>
             </header>
