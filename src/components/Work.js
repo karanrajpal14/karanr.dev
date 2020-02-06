@@ -4,7 +4,10 @@ import { IconSelector } from "./IconSelector"
 
 export const Work = () => {
   const isMobile = () => {
-    return "ontouchstart" in window || navigator.msMaxTouchPoints
+    const windowGlobal = typeof window !== "undefined" && window
+    return windowGlobal
+      ? "ontouchstart" in windowGlobal || navigator.msMaxTouchPoints
+      : false
   }
 
   return (
