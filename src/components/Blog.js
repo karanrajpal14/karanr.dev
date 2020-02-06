@@ -44,7 +44,7 @@ export const Blog = ({ authorName }) => {
           <IconSelector icon="chevright" /> Recent blog posts
         </Title>
         <Container fluid>
-          <Column.Group multiline>
+          <Column.Group multiline centered>
             {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => {
               return (
                 <Column size="one-third-desktop half-tablet" narrow key={id}>
@@ -93,11 +93,13 @@ export const Blog = ({ authorName }) => {
               )
             })}
           </Column.Group>
-          <Title textAlign="centered" subtitle>
-            <Link to="/blog">
-              Read more <IconSelector icon="angleright" />
-            </Link>
-          </Title>
+          {data.allMdx.nodes.length > 6 ? (
+            <Title as="p" size={4} textAlign="centered" subtitle>
+              <Link to="/blog">
+                Read more <IconSelector icon="angleright" />
+              </Link>
+            </Title>
+          ) : null}
         </Container>
       </Column>
     </Section>

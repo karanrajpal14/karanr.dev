@@ -107,7 +107,7 @@ export const Projects = ({ authorName }) => {
             })}
           </Column.Group>
           {data.allMdx.nodes.length > 6 ? (
-            <Title textAlign="centered" subtitle>
+            <Title as="p" size={4} textAlign="centered" subtitle>
               <Link to="/projects">
                 See more <IconSelector icon="angleright" />
               </Link>

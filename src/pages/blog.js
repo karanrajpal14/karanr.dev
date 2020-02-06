@@ -36,7 +36,7 @@ export default ({ data }) => {
           </Title>
           <Column.Group multiline centered>
             {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
-              <Column size="one-fourth-desktop half-tablet" key={id}>
+              <Column size="one-fourth-desktop half-tablet" key={id} narrow>
                 <Link to={`/blog/${fields.slug}`}>
                   <StyledCard className="card-equal-height">
                     <StyledCard.Header>

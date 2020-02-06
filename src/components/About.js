@@ -18,7 +18,7 @@ export const About = ({ authorName }) => {
             <FaChevronRight /> A little about me
           </Title>
           <Container fluid>
-            <Title as="h3" subtitle>
+            <Title as="p" subtitle textWeight="100">
               I'm a student at the University of Texas, Arlington currently
               pursing my Master's in Computer Science. I love building Web and
               Android applications and I've been been professionally developing

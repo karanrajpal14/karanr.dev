@@ -84,7 +84,6 @@ const Hero = ({
             className="elements-effect"
             size={1}
             data-sal="fade"
-            data-sal-delay="300"
             data-sal-duration="1000"
             data-sal-easing="ease"
           >
