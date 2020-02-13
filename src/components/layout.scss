@@ -126,6 +126,10 @@ html {
   box-sizing: inherit;
 }
 
+::selection {
+  background: lighten($main, 40);
+}
+
 main {
   min-height: 100vh;
   display: grid;
