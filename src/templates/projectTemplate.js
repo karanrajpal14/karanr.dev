@@ -6,15 +6,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import {
-  Container,
-  Title,
-  Divider,
-  Button,
-  Icon,
-  Column,
-  Section
-} from "rbx"
+import { Container, Title, Divider, Button, Icon, Column, Section } from "rbx"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 export default ({ data, pageContext }) => {

@@ -40,7 +40,9 @@ export default ({ data, pageContext }) => {
       <Section id="top">
         <Container>
           <Title>{frontmatter.title}</Title>
-          <Title subtitle size={5}>{frontmatter.date}</Title>
+          <Title subtitle size={5}>
+            {frontmatter.date}
+          </Title>
           {/* {!!frontmatter.cover ? (
             <Image.Container size={512}>
               <Img sizes={frontmatter.cover.childImageSharp.sizes} />
