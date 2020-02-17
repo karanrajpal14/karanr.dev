@@ -41,7 +41,7 @@ export const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="2.5em"
               height="1.5em"
-              fill="whitesmoke"
+              fill="#000"
               viewBox="0 0 157.4 98"
               className={navbarStyles.logo}
             >
