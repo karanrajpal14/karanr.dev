@@ -218,3 +218,8 @@ main {
 .navbar-margin {
   margin-top: $navbar-height / 2;
 }
+
+// Adding some margin at the end of the navbar
+.navbar-end > :last-child {
+  margin-right: 1em !important;
+}

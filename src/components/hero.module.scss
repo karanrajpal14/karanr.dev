@@ -4,16 +4,40 @@
   background-size: cover;
 }
 
+.ghicon {
+  transition-property: filter;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
 .ghicon:hover {
   filter: invert(0.6);
+}
+
+.lnicon {
+  transition-property: fill;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
 }
 
 .lnicon:hover {
   fill: #0077b5;
 }
 
+.twicon {
+  transition-property: fill;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
 .twicon:hover {
   fill: #00aced;
+}
+
+.dwicon {
+  transition-property: fill;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
 }
 
 .dwicon:hover {
