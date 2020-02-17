@@ -22,6 +22,16 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-anchor-links`,
     {
+      resolve: `gatsby-plugin-scroll-indicator`,
+      options: {
+        color: "#f5f0fa",
+        height: "0.4em",
+        paths: ["/blog/**", "/projects/**"],
+        zIndex: 9999,
+      },
+    },
+    {
+    {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
           threshold: 0.5, // Percentage of an element's area that needs to be visible to launch animation
