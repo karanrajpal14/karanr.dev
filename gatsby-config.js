@@ -23,6 +23,9 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-anchor-links`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
