@@ -4,42 +4,42 @@
   background-size: cover;
 }
 
-.ghicon {
+.ghicon > svg {
   transition-property: filter;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 }
 
-.ghicon:hover {
+.ghicon:hover > svg {
   filter: invert(0.6);
 }
 
-.lnicon {
+.lnicon > svg {
   transition-property: fill;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 }
 
-.lnicon:hover {
+.lnicon:hover > svg {
   fill: #0077b5;
 }
 
-.twicon {
+.twicon > svg {
   transition-property: fill;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 }
 
-.twicon:hover {
+.twicon:hover > svg {
   fill: #00aced;
 }
 
-.dwicon {
+.dwicon > svg {
   transition-property: fill;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 }
 
-.dwicon:hover {
-  fill: #59ffa0;
+.dwicon:hover > svg {
+  fill: #29cf71;
 }

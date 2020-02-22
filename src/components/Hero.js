@@ -69,7 +69,12 @@ const Hero = ({
             data-sal-duration="500"
             data-sal-easing="ease"
           >
-            <Image as={Img} fixed={data.allImageSharp.nodes[0].fixed} rounded style={{ margin: "2em" }} />
+            <Image
+              as={Img}
+              fixed={data.allImageSharp.nodes[0].fixed}
+              rounded
+              style={{ margin: "2em" }}
+            />
           </Image.Container>
 
           <Title
@@ -123,6 +128,7 @@ const Hero = ({
               <Generic as="div">
                 <Heading>GitHub</Heading>
                 <a
+                  className={heroStyles.ghicon}
                   href={`https://github.com/${githubUsername}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -140,10 +146,10 @@ const Hero = ({
               <Generic as="div">
                 <Heading>LinkedIn</Heading>
                 <a
+                  className={heroStyles.lnicon}
                   href={`https://linkedin.com/in/${linkedinUsername}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-button"
                 >
                   <IconSelector
                     icon="linkedin"
@@ -157,10 +163,10 @@ const Hero = ({
               <Generic as="div">
                 <Heading>Twitter</Heading>
                 <a
+                  className={heroStyles.twicon}
                   href={`https://twitter.com/${twitterUsername}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-button"
                 >
                   <IconSelector
                     icon="twitter"
@@ -175,10 +181,10 @@ const Hero = ({
               <Generic as="div">
                 <Heading>Resume</Heading>
                 <a
+                  className={heroStyles.dwicon}
                   href="/documents/karan-rajpal-resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-button"
                 >
                   <IconSelector
                     icon="resume"
