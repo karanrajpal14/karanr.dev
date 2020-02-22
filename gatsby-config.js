@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Karan Rajpal | Portfolio`,
@@ -22,6 +24,17 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-anchor-links`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `GatsbyJS`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        icon: `static/logo.svg`,
+        background_color: `#663399`,
+        theme_color: `#fff`,
+        display: `standalone`,
+      },
+    },
     {
       resolve: "gatsby-plugin-root-import",
       options: {
@@ -36,6 +49,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        defaultSizes: "gzip",
+        devMode: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-scroll-indicator`,
       options: {
         color: "#f5f0fa",
@@ -47,18 +68,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
-          threshold: 0.5, // Percentage of an element's area that needs to be visible to launch animation
-          once: true, // Defines if animation needs to be launched once
-          disable: false // Flag for disabling animations
-      }
-    },
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        // Setting a color is optional.
-        color: `#639`,
-        // Disable the loading spinner.
-        showSpinner: false,
+        threshold: 0.5, // Percentage of an element's area that needs to be visible to launch animation
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
       },
     },
     {

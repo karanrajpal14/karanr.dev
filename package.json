@@ -23,6 +23,7 @@
     "gatsby": "^2.19.5",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-anchor-links": "^1.0.11",
+    "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-mdx": "^1.0.64",
     "gatsby-plugin-nprogress": "^2.1.18",
     "gatsby-plugin-react-helmet": "^3.1.18",
@@ -45,11 +46,12 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
-    "react-seo-component": "^0.1.16",
-    "styled-components": "^4.4.1",
+    "react-seo-component": "^1.0.0",
+    "styled-components": "5.0.1",
     "yup": "^0.28.0"
   },
   "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
     "prettier": "^1.19.1"
   },
   "repository": {

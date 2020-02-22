@@ -12,7 +12,7 @@ export const Navbar = () => {
     const navbarItemsArray = []
     nodes.forEach(item => {
       navbarItemsArray.push(
-        <RBXNavbar.Item as="div" textSize="4" key={item.label}>
+        <RBXNavbar.Item as="div" textSize={4} key={item.label}>
           <Link
             to={item.link}
             className={navbarStyles.navItem}
@@ -35,7 +35,7 @@ export const Navbar = () => {
       transparent
     >
       <RBXNavbar.Brand>
-        <RBXNavbar.Item as="div" textSize="4">
+        <RBXNavbar.Item as="div" textSize={4}>
           <Link to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ export const Navbar = () => {
       <RBXNavbar.Menu>
         <RBXNavbar.Segment align="end">
           {/* {generateNavbarItems()} */}
-          <RBXNavbar.Item as="div" textSize="4" dropdown hoverable>
+          <RBXNavbar.Item as="div" textSize={4} dropdown hoverable>
             <RBXNavbar.Link>
               <Link
                 to="/"
@@ -69,7 +69,7 @@ export const Navbar = () => {
               </Link>
             </RBXNavbar.Link>
             <RBXNavbar.Dropdown boxed>
-              <RBXNavbar.Item as="div" textSize="4">
+              <RBXNavbar.Item as="div" textSize={4}>
                 <AnchorLink
                   to="/#about"
                   className={navbarStyles.navItem}
@@ -78,7 +78,7 @@ export const Navbar = () => {
                   About me
                 </AnchorLink>
               </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize="4">
+              <RBXNavbar.Item as="div" textSize={4}>
                 <AnchorLink
                   to="/#work"
                   className={navbarStyles.navItem}
@@ -87,7 +87,7 @@ export const Navbar = () => {
                   Work
                 </AnchorLink>
               </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize="4">
+              <RBXNavbar.Item as="div" textSize={4}>
                 <AnchorLink
                   to="/#recent-projects"
                   className={navbarStyles.navItem}
@@ -96,7 +96,7 @@ export const Navbar = () => {
                   Recent projects
                 </AnchorLink>
               </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize="4">
+              <RBXNavbar.Item as="div" textSize={4}>
                 <AnchorLink
                   to="/#skills"
                   className={navbarStyles.navItem}
@@ -105,7 +105,7 @@ export const Navbar = () => {
                   Skills
                 </AnchorLink>
               </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize="4">
+              <RBXNavbar.Item as="div" textSize={4}>
                 <AnchorLink
                   to="/#recent-posts"
                   className={navbarStyles.navItem}
@@ -114,7 +114,7 @@ export const Navbar = () => {
                   Recent blog posts
                 </AnchorLink>
               </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize="4">
+              <RBXNavbar.Item as="div" textSize={4}>
                 <AnchorLink
                   to="/#contact"
                   className={navbarStyles.navItem}
@@ -125,7 +125,7 @@ export const Navbar = () => {
               </RBXNavbar.Item>
             </RBXNavbar.Dropdown>
           </RBXNavbar.Item>
-          <RBXNavbar.Item as="div" textSize="4">
+          <RBXNavbar.Item as="div" textSize={4}>
             <Link
               to="/projects/"
               className={navbarStyles.navItem}
@@ -134,7 +134,7 @@ export const Navbar = () => {
               Projects
             </Link>
           </RBXNavbar.Item>
-          <RBXNavbar.Item as="div" textSize="4">
+          <RBXNavbar.Item as="div" textSize={4}>
             <Link
               to="/blog/"
               className={navbarStyles.navItem}
