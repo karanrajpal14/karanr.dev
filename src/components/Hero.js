@@ -9,16 +9,9 @@ import {
   Level,
   Heading,
 } from "rbx"
-import { IconContext } from "react-icons"
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaFileDownload,
-  FaChevronDown,
-} from "react-icons/fa"
 import heroStyles from "./hero.module.scss"
 import Img from "gatsby-image"
+import { IconSelector } from "./IconSelector"
 
 const Hero = ({
   authorName,
@@ -76,7 +69,7 @@ const Hero = ({
             data-sal-duration="500"
             data-sal-easing="ease"
           >
-            <Image as={Img} fixed={data.allImageSharp.nodes[0].fixed} rounded />
+            <Image as={Img} fixed={data.allImageSharp.nodes[0].fixed} rounded style={{ margin: "2em" }} />
           </Image.Container>
 
           <Title
@@ -120,95 +113,101 @@ const Hero = ({
             </Generic>
           </Title>
 
-          <IconContext.Provider
-            value={{
-              size: "3em",
-              color: "#0a0a0a",
-              style: { margin: "0.5em" },
-            }}
+          <Level
+            data-sal="fade"
+            data-sal-delay="800"
+            data-sal-duration="2000"
+            data-sal-easing="ease"
           >
-            <Level
-              data-sal="fade"
-              data-sal-delay="800"
-              data-sal-duration="2000"
-              data-sal-easing="ease"
-            >
-              <Level.Item textAlign="centered">
-                <Generic as="div">
-                  <Heading>GitHub</Heading>
-                  <a
-                    href={`https://github.com/${githubUsername}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub className={heroStyles.ghicon} />
-                  </a>
-                </Generic>
-              </Level.Item>
+            <Level.Item textAlign="centered">
+              <Generic as="div">
+                <Heading>GitHub</Heading>
+                <a
+                  href={`https://github.com/${githubUsername}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconSelector
+                    icon="github"
+                    size="3em"
+                    style={{ margin: "0.5em" }}
+                  />
+                </a>
+              </Generic>
+            </Level.Item>
 
-              <Level.Item textAlign="centered">
-                <Generic as="div">
-                  <Heading>LinkedIn</Heading>
-                  <a
-                    href={`https://linkedin.com/in/${linkedinUsername}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-button"
-                  >
-                    <FaLinkedin className={heroStyles.lnicon} />
-                  </a>
-                </Generic>
-              </Level.Item>
-              <Level.Item textAlign="centered">
-                <Generic as="div">
-                  <Heading>Twitter</Heading>
-                  <a
-                    href={`https://twitter.com/${twitterUsername}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-button"
-                  >
-                    <FaTwitter className={heroStyles.twicon} />
-                  </a>
-                </Generic>
-              </Level.Item>
+            <Level.Item textAlign="centered">
+              <Generic as="div">
+                <Heading>LinkedIn</Heading>
+                <a
+                  href={`https://linkedin.com/in/${linkedinUsername}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-button"
+                >
+                  <IconSelector
+                    icon="linkedin"
+                    size="3em"
+                    style={{ margin: "0.5em" }}
+                  />
+                </a>
+              </Generic>
+            </Level.Item>
+            <Level.Item textAlign="centered">
+              <Generic as="div">
+                <Heading>Twitter</Heading>
+                <a
+                  href={`https://twitter.com/${twitterUsername}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-button"
+                >
+                  <IconSelector
+                    icon="twitter"
+                    size="3em"
+                    style={{ margin: "0.5em" }}
+                  />
+                </a>
+              </Generic>
+            </Level.Item>
 
-              <Level.Item textAlign="centered">
-                <Generic as="div">
-                  <Heading>Resume</Heading>
-                  <a
-                    href="/documents/karan-rajpal-resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-button"
-                  >
-                    <FaFileDownload className={heroStyles.dwicon} />
-                  </a>
-                </Generic>
-              </Level.Item>
-            </Level>
-          </IconContext.Provider>
+            <Level.Item textAlign="centered">
+              <Generic as="div">
+                <Heading>Resume</Heading>
+                <a
+                  href="/documents/karan-rajpal-resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-button"
+                >
+                  <IconSelector
+                    icon="resume"
+                    size="3em"
+                    style={{ margin: "0.5em" }}
+                  />
+                </a>
+              </Generic>
+            </Level.Item>
+          </Level>
 
-          <IconContext.Provider value={{ size: "2em", color: "#0a0a0a" }}>
-            <Generic
-              as="div"
-              data-sal="fade"
-              data-sal-delay="900"
-              data-sal-duration="2000"
-              data-sal-easing="ease"
-            >
-              <FaChevronDown className="chevron" />
-            </Generic>
-            <Generic
-              as="div"
-              data-sal="fade"
-              data-sal-delay="900"
-              data-sal-duration="2000"
-              data-sal-easing="ease"
-            >
-              <FaChevronDown className="chevron" />
-            </Generic>
-          </IconContext.Provider>
+          <Generic
+            as="div"
+            data-sal="fade"
+            data-sal-delay="900"
+            data-sal-duration="2000"
+            data-sal-easing="ease"
+          >
+            <IconSelector icon="chevdown" />
+          </Generic>
+          <Generic
+            as="div"
+            data-sal="fade"
+            data-sal-delay="900"
+            data-sal-duration="2000"
+            data-sal-easing="ease"
+          >
+            <IconSelector icon="chevdown" />
+          </Generic>
         </Generic>
       </RBXHero.Body>
     </RBXHero>

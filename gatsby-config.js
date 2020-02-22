@@ -22,6 +22,20 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-anchor-links`,
     {
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        src: path.join(__dirname, "src"),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /icons/,
+        },
+      },
+    },
       resolve: `gatsby-plugin-scroll-indicator`,
       options: {
         color: "#f5f0fa",

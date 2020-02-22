@@ -18,8 +18,8 @@ import {
   Title,
 } from "rbx"
 import * as yup from "yup"
-import { FaEnvelope, FaUser, FaTelegramPlane } from "react-icons/fa"
 import axios from "axios"
+import { IconSelector } from "src/components/IconSelector"
 
 const alpha = /^[a-zA-Z_]+( [a-zA-Z_]+)*$/
 
@@ -106,7 +106,7 @@ export const Contact = () => {
                                   <ErrorMessage name="name" component="p" />
                                 </Help>
                                 <Icon size="small" align="left">
-                                  <FaUser />
+                                  <IconSelector icon="name" size="1em" />
                                 </Icon>
                               </Control>
                             </Field>
@@ -129,7 +129,7 @@ export const Contact = () => {
                                   <ErrorMessage name="email" component="p" />
                                 </Help>
                                 <Icon size="small" align="left">
-                                  <FaEnvelope />
+                                  <IconSelector icon="email" size="1em" />
                                 </Icon>
                               </Control>
                             </Field>
@@ -166,7 +166,7 @@ export const Contact = () => {
                                     size="medium"
                                   >
                                     <Icon size="small" align="left">
-                                      <FaTelegramPlane />
+                                      <IconSelector icon="send" size="1em" />
                                     </Icon>
                                     <span>Send</span>
                                   </Button>

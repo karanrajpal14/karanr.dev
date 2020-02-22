@@ -14,7 +14,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@icons-pack/react-simple-icons": "^2.1.0",
     "@mdx-js/mdx": "^1.5.3",
     "@mdx-js/react": "^1.5.3",
     "axios": "^0.19.1",
@@ -27,6 +26,8 @@
     "gatsby-plugin-mdx": "^1.0.64",
     "gatsby-plugin-nprogress": "^2.1.18",
     "gatsby-plugin-react-helmet": "^3.1.18",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sass": "^2.1.26",
     "gatsby-plugin-scroll-indicator": "^1.0.0",
     "gatsby-plugin-scroll-reveal": "^0.0.6",
@@ -43,7 +44,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-icons": "^3.8.0",
     "react-live": "^2.2.2",
     "react-seo-component": "^0.1.16",
     "styled-components": "^4.4.1",

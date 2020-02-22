@@ -7,7 +7,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { Container, Title, Divider, Button, Icon, Column, Section } from "rbx"
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import { IconSelector } from "src/components/IconSelector"
 
 export default ({ data, pageContext }) => {
   const {
@@ -58,7 +58,7 @@ export default ({ data, pageContext }) => {
                   {previous && (
                     <Button as={Link} to={`/projects${previous.fields.slug}`}>
                       <Icon size="small">
-                        <FaChevronLeft />
+                        <IconSelector icon="chevleft" />
                       </Icon>
                       <Title size={6}>{previous.frontmatter.title}</Title>
                     </Button>
@@ -79,7 +79,7 @@ export default ({ data, pageContext }) => {
                   {next && (
                     <Button as={Link} to={`/projects${next.fields.slug}`}>
                       <Icon size="small">
-                        <FaChevronRight />
+                        <IconSelector icon="chevright" />
                       </Icon>
                       <Title size={6}>{next.frontmatter.title}</Title>
                     </Button>
