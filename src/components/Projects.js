@@ -25,8 +25,8 @@ export const Projects = ({ authorName }) => {
             cover {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 1500, traceSVG: { color: "#639" }) {
-                  ...GatsbyImageSharpFluid_tracedSVG
+                fluid(maxWidth: 1000, traceSVG: { color: "#639" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
