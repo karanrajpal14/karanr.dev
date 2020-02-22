@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Karan Rajpal | Portfolio`,
     description: `This is my coding blog where I write about my coding journey.`,
-    image: `/default-site-image.jpg`,
+    image: `/header.jpg`,
     siteUrl: `https://karanr.dev`,
     siteLanguage: `en-GB`,
     siteLocale: `en_gb`,
