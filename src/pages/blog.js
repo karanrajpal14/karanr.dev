@@ -1,13 +1,14 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { Layout } from "../components/Layout"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { useBlogPosts } from "../hooks/useBlogPosts"
 import { Section, Container, Column, Title, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
 import { StyledCard } from "../components/StyledCard"
 
-export default ({ data }) => {
+export default () => {
   const {
     description,
     title,
@@ -17,6 +18,7 @@ export default ({ data }) => {
     siteLocale,
     twitterUsername,
   } = useSiteMetadata()
+  const posts = useBlogPosts()
 
   return (
     <Layout>
@@ -35,7 +37,7 @@ export default ({ data }) => {
             <IconSelector icon="chevright" /> All posts
           </Title>
           <Column.Group multiline centered>
-            {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
+            {posts.map(({ id, excerpt, frontmatter, fields }) => (
               <Column size="one-fourth-desktop half-tablet" key={id} narrow>
                 <Link to={`/blog/${fields.slug}`}>
                   <StyledCard className="card-equal-height">
@@ -66,7 +68,10 @@ export default ({ data }) => {
                                   textColor="primary"
                                   key={tag}
                                 >
-                                  <IconSelector icon={tag} style={{ margin: "0.5em" }}/>
+                                  <IconSelector
+                                    icon={tag}
+                                    style={{ margin: "0.5em" }}
+                                  />
                                 </Generic>
                               )
                             })
@@ -83,33 +88,3 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query POST_INDEX_QUERY {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { eq: true }, type: { eq: "post" } } }
-    ) {
-      nodes {
-        id
-        excerpt(pruneLength: 250)
-        frontmatter {
-          title
-          date(formatString: "YYYY MMMM Do")
-          tags
-          cover {
-            publicURL
-            childImageSharp {
-              sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
-                ...GatsbyImageSharpSizes_tracedSVG
-              }
-            }
-          }
-        }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-`

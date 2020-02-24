@@ -1,42 +1,13 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
+import { useBlogPosts } from "src/hooks/useBlogPosts"
 import { Section, Container, Title, Column, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
 import { StyledCard } from "./StyledCard"
 
-export const Blog = ({ authorName }) => {
-  const data = useStaticQuery(graphql`
-    {
-      allMdx(
-        limit: 3
-        sort: { fields: [frontmatter___date], order: DESC }
-        filter: {
-          frontmatter: { published: { eq: true }, type: { eq: "post" } }
-        }
-      ) {
-        nodes {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            title
-            date(formatString: "YYYY MMMM Do")
-            tags
-            cover {
-              publicURL
-              childImageSharp {
-                sizes(maxWidth: 1500, traceSVG: { color: "#639" }) {
-                  ...GatsbyImageSharpSizes_tracedSVG
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  `)
+export const Blog = () => {
+  const posts = useBlogPosts()
+
   return (
     <Section id="recent-posts">
       <Column size="half" offset="one-quarter">
@@ -45,7 +16,7 @@ export const Blog = ({ authorName }) => {
         </Title>
         <Container fluid>
           <Column.Group multiline centered>
-            {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => {
+            {posts.map(({ id, excerpt, frontmatter, fields }) => {
               return (
                 <Column size="one-third-desktop half-tablet" narrow key={id}>
                   <Link to={"/blog/" + fields.slug}>
@@ -93,7 +64,7 @@ export const Blog = ({ authorName }) => {
               )
             })}
           </Column.Group>
-          {data.allMdx.nodes.length > 6 ? (
+          {posts.length > 6 ? (
             <Title as="p" size={4} textAlign="centered" subtitle>
               <Link to="/blog">
                 Read more <IconSelector icon="angleright" />

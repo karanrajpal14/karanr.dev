@@ -1,43 +1,14 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { Section, Container, Title, Column, Image, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
 import { StyledCard } from "./StyledCard"
 import { StyledImage } from "./StyledImage"
+import { useProjects } from "../hooks/useProjects"
 
-export const Projects = ({ authorName }) => {
-  const data = useStaticQuery(graphql`
-    {
-      allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
-        filter: {
-          frontmatter: { published: { eq: true }, type: { eq: "project" } }
-        }
-        limit: 6
-      ) {
-        nodes {
-          id
-          excerpt(pruneLength: 100)
-          frontmatter {
-            title
-            date(formatString: "YYYY MMMM Do")
-            tags
-            cover {
-              publicURL
-              childImageSharp {
-                fluid(maxWidth: 1000, traceSVG: { color: "#639" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  `)
+export const Projects = () => {
+  const projects = useProjects()
+
   return (
     <Section id="recent-projects">
       <Column size="half" offset="one-quarter">
@@ -46,7 +17,7 @@ export const Projects = ({ authorName }) => {
         </Title>
         <Container fluid>
           <Column.Group multiline>
-            {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => {
+            {projects.map(({ id, excerpt, frontmatter, fields }) => {
               return (
                 <Column size="one-third-desktop half-tablet" narrow key={id}>
                   <Link to={"/projects/" + fields.slug}>
@@ -106,7 +77,7 @@ export const Projects = ({ authorName }) => {
               )
             })}
           </Column.Group>
-          {data.allMdx.nodes.length > 6 ? (
+          {projects.length > 6 ? (
             <Title as="p" size={4} textAlign="centered" subtitle>
               <Link to="/projects">
                 See more <IconSelector icon="angleright" />

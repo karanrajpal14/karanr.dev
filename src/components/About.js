@@ -2,7 +2,7 @@ import React from "react"
 import { Section, Container, Title, Column } from "rbx"
 import { IconSelector } from "./IconSelector"
 
-export const About = ({ authorName }) => {
+export const About = () => {
   let date1 = new Date("2016/06/18").getFullYear()
   let date2 = new Date().getFullYear()
   let yearsDiff = date2 - date1

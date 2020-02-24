@@ -7,6 +7,7 @@ import { Section, Container, Title, Image, Column, Card, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
 import { StyledCard } from "../components/StyledCard"
 import { StyledImage } from "../components/StyledImage"
+import { useProjects } from "../hooks/useProjects"
 
 export default ({ data }) => {
   const {
@@ -18,6 +19,8 @@ export default ({ data }) => {
     siteLocale,
     twitterUsername,
   } = useSiteMetadata()
+
+  const projects = useProjects()
 
   return (
     <Layout>
@@ -36,7 +39,7 @@ export default ({ data }) => {
             <IconSelector icon="chevright" /> All projects
           </Title>
           <Column.Group multiline centered>
-            {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
+            {projects.map(({ id, excerpt, frontmatter, fields }) => (
               <Column size="one-fourth-desktop half-tablet" key={id}>
                 <Link to={`/projects/${fields.slug}`}>
                   <StyledCard className="card-equal-height">
@@ -99,35 +102,3 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query PROJECT_INDEX_QUERY {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { published: { eq: true }, type: { eq: "project" } }
-      }
-    ) {
-      nodes {
-        id
-        excerpt(pruneLength: 150)
-        frontmatter {
-          title
-          date(formatString: "YYYY MMMM Do")
-          tags
-          cover {
-            publicURL
-            childImageSharp {
-              fluid(maxWidth: 1500, traceSVG: { color: "#639" }) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
-            }
-          }
-        }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-`

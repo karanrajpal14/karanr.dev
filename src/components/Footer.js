@@ -2,11 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { Footer as RBXFooter, Content, Column } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import footerStyles from "./footer.module.scss"
 import { IconSelector } from "./IconSelector"
 
-export const Footer = ({ authorName }) => {
+export const Footer = () => {
   const { nodes } = useNavbarContent()
+  const { authorName } = useSiteMetadata()
 
   const generateFooterItems = () => {
     const footerItemsArray = []
@@ -27,10 +29,7 @@ export const Footer = ({ authorName }) => {
   }
 
   return (
-    <RBXFooter
-      as="footer"
-      backgroundColor="white"
-    >
+    <RBXFooter as="footer" backgroundColor="white">
       <Content textAlign="centered">
         <Column.Group centered>{generateFooterItems()}</Column.Group>
         <p>
