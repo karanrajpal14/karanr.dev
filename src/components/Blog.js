@@ -30,7 +30,7 @@ export const Blog = () => {
                       </StyledCard.Header>
                       <StyledCard.Content>
                         <Generic as="p" textSize={5}>
-                          {excerpt.substring(frontmatter.title.length)}
+                          {excerpt}
                         </Generic>
                       </StyledCard.Content>
                       <StyledCard.Footer
