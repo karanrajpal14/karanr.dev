@@ -12,7 +12,7 @@ export const useBlogPosts = () => {
         ) {
           nodes {
             id
-            excerpt(pruneLength: 250)
+            excerpt(pruneLength: 100)
             frontmatter {
               title
               date(formatString: "YYYY MMMM Do")

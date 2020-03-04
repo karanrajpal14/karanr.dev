@@ -1,6 +1,10 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
 
+// Import a Google Font
+$family-sans-serif: "Cooper Hewitt", sans-serif;
+$title-family: "Aleo", serif;
+
 // 4. Setup your Custom Colors
 $main: #663399;
 $main-light: lighten(
@@ -216,7 +220,11 @@ main {
 
 // Navbar margin for fixed navbar
 .navbar-margin {
-  margin-top: $navbar-height / 2;
+  margin-top: $navbar-height;
+}
+
+h1 {
+  scroll-margin-top: $navbar-height;
 }
 
 // Adding some margin at the end of the navbar

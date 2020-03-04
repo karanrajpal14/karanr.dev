@@ -42,9 +42,9 @@ export const Projects = () => {
                         </StyledCard.Header.Title>
                       </StyledCard.Header>
                       <StyledCard.Content>
-                        <Title as="p" subtitle size={5}>
+                        <Generic as="p" textSize={5}>
                           {excerpt.substring(frontmatter.title.length)}
-                        </Title>
+                        </Generic>
                       </StyledCard.Content>
                       <StyledCard.Footer
                         as="footer"

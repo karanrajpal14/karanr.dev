@@ -69,10 +69,11 @@ export const Contact = () => {
                 <Title as="h3" textAlign="centered" spaced>
                   Get in touch!
                 </Title>
-                <Title as="p" subtitle>
-                  Want to talk about tech, games or comics? Or anything else at
-                  all? Hit me up. We'll have a chat :D
-                </Title>
+                <Generic as="p" textSize={4}>
+                  If you like what you've seen on my site, or if you think I'm a
+                  good fit for a role at your company, let me know. I'm
+                  currently open to exploring new opportunities.
+                </Generic>
                 <Formik
                   initialValues={{
                     name: "",

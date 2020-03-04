@@ -38,7 +38,7 @@ export default () => {
           </Title>
           <Column.Group multiline centered>
             {posts.map(({ id, excerpt, frontmatter, fields }) => (
-              <Column size="one-fourth-desktop half-tablet" key={id} narrow>
+              <Column size="one-fourth-desktop half-tablet" key={id}>
                 <Link to={`/blog/${fields.slug}`}>
                   <StyledCard className="card-equal-height">
                     <StyledCard.Header>

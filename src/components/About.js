@@ -1,5 +1,6 @@
 import React from "react"
-import { Section, Container, Title, Column } from "rbx"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { Section, Container, Title, Column, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
 
 export const About = () => {
@@ -14,12 +15,15 @@ export const About = () => {
           <IconSelector icon="chevright" /> A little about me
         </Title>
         <Container fluid>
-          <Title as="p" subtitle>
+          <Generic as="p" textSize={4} textWeight="medium">
             I'm a student at the University of Texas, Arlington currently
             pursing my Master's in Computer Science. I love building Web and
             Android applications and I've been been professionally developing
             applications for the past {yearsDiff} years.
-          </Title>
+          </Generic>
+          <Generic as="p" textSize={4} textWeight="medium" textColor="danger">
+            I'm currently looking for Summer Internship opportunities. If you have a challenging role for me at your company, <AnchorLink to="/#contact">let me know.</AnchorLink>
+          </Generic>
         </Container>
       </Column>
     </Section>

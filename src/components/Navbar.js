@@ -4,9 +4,11 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Navbar as RBXNavbar } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
 import navbarStyles from "./navbar.module.scss"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 export const Navbar = () => {
   const { nodes } = useNavbarContent()
+  const { authorName } = useSiteMetadata()
 
   const generateNavbarItems = () => {
     const navbarItemsArray = []
@@ -28,7 +30,6 @@ export const Navbar = () => {
 
   return (
     <RBXNavbar
-      color="white"
       as="header"
       fixed="top"
       className={navbarStyles.navbar}
@@ -45,7 +46,7 @@ export const Navbar = () => {
               viewBox="0 0 157.4 98"
               className={navbarStyles.logo}
             >
-              <title>Karan Rajpal</title>
+              <title>{authorName}</title>
               <path d="M0 31.3V98H67L0 31.3Z" />
               <path d="M0 66.7V0H67L0 66.7Z" />
               <path d="M90 31.3V98h67L90 31.3Z" />

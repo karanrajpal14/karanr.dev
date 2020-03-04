@@ -50,6 +50,8 @@
     "react-live": "^2.2.2",
     "react-seo-component": "^1.0.0",
     "styled-components": "5.0.1",
+    "typeface-aleo": "^0.0.69",
+    "typeface-cooper-hewitt": "^0.0.44",
     "yup": "^0.28.0"
   },
   "devDependencies": {
