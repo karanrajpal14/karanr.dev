@@ -1,4 +1,5 @@
 const path = require("path")
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -22,10 +23,28 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-offline`,
+    {
+      resolve: "@fs/gatsby-plugin-drive",
+      options: {
+        folderId: process.env.GOOGLE_DRIVE_FOLDER_ID,
+        key: {
+          private_key: process.env.GOOGLE_PRIVATE_KEY,
+          client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        },
+        destination: path.join(__dirname, "static/documents"),
+        exportGDocs: true,
+        exportMimeType: "application/pdf",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

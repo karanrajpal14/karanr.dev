@@ -1,0 +1,39 @@
+diff --git a/node_modules/@fs/gatsby-plugin-drive/gatsby-node.js b/node_modules/@fs/gatsby-plugin-drive/gatsby-node.js
+index 8d89695..04ee065 100644
+--- a/node_modules/@fs/gatsby-plugin-drive/gatsby-node.js
++++ b/node_modules/@fs/gatsby-plugin-drive/gatsby-node.js
+@@ -6,6 +6,7 @@ const fs = require(`fs`);
+ const log = str => console.log(`\n\n🚗 `, str);
+ const FOLDER = `application/vnd.google-apps.folder`;
+ const GOOGLE_DOC = 'application/vnd.google-apps.document';
++const REMOVE = 'Getting started'
+ 
+ let shouldExportGDocs;
+ let exportMime;
+@@ -37,7 +38,7 @@ exports.onPreBootstrap = ({ graphql, actions }, { folderId, keyFile, key, destin
+ function recursiveFolders(array, parent = '', token, destination) {
+   return new Promise(async (resolve, reject) => {
+     let promises = [];
+-    let filesToDownload = shouldExportGDocs ? array : array.filter(file => file.mimeType !== GOOGLE_DOC);
++    let filesToDownload = shouldExportGDocs ? array.filter(file => file.name != REMOVE) : array.filter(file => file.mimeType !== GOOGLE_DOC);
+     
+     for (let file of filesToDownload) {
+       // Check if it`s a folder or a file
+diff --git a/node_modules/@fs/gatsby-plugin-drive/googleapis.js b/node_modules/@fs/gatsby-plugin-drive/googleapis.js
+index cb6b7e8..b501236 100644
+--- a/node_modules/@fs/gatsby-plugin-drive/googleapis.js
++++ b/node_modules/@fs/gatsby-plugin-drive/googleapis.js
+@@ -29,12 +29,10 @@ const getFolder = (folderId, token) => {
+       uri: `https://www.googleapis.com/drive/v3/files`,
+       auth: {
+         bearer: token
+-      },
+-      qs: {
+-        q: `'${folderId}' in parents`
+       }
+     }, (err, res, body) => {
+       if (err) {
++        log(err);
+         reject(err);
+       } else {
+         resolve(JSON.parse(body).files);
