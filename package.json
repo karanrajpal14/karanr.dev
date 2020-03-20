@@ -11,7 +11,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean && rimraf src/content",
+    "clean": "gatsby clean && rimraf node_modules/ yarn.lock && yarn",
     "postinstall": "patch-package",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
@@ -27,7 +27,6 @@
     "gatsby": "^2.20.2",
     "gatsby-image": "^2.3.0",
     "gatsby-plugin-anchor-links": "^1.1.1",
-    "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-manifest": "^2.3.1",
     "gatsby-plugin-mdx": "^1.1.0",
     "gatsby-plugin-offline": "^3.1.0",
@@ -59,7 +58,6 @@
     "styled-components": "5.0.1",
     "typeface-aleo": "^0.0.69",
     "typeface-cooper-hewitt": "^0.0.44",
-    "yup": "^0.28.0"
     "yup": "^0.28.3"
   },
   "devDependencies": {
