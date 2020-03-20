@@ -8,10 +8,14 @@ export const useNavbarContent = () => {
           nodes {
             label
             link
+            subfields {
+              label
+              link
+            }
           }
         }
       }
     `
   )
-  return allNavbarContentJson;
+  return allNavbarContentJson
 }

@@ -10,11 +10,18 @@ export const Navbar = () => {
   const { nodes } = useNavbarContent()
   const { authorName } = useSiteMetadata()
 
-  const generateNavbarItems = () => {
-    const navbarItemsArray = []
-    nodes.forEach(item => {
-      navbarItemsArray.push(
-        <RBXNavbar.Item as="div" textSize={4} key={item.label}>
+  const wrapNavbarItem = item => {
+    return (
+      <RBXNavbar.Item as="div" textSize={4} key={item.label}>
+        {item.link.includes("#") ? (
+          <AnchorLink
+            to={item.link}
+            className={navbarStyles.navItem}
+            activeClassName={navbarStyles.navItemActive}
+          >
+            {item.label}
+          </AnchorLink>
+        ) : (
           <Link
             to={item.link}
             className={navbarStyles.navItem}
@@ -22,10 +29,46 @@ export const Navbar = () => {
           >
             {item.label}
           </Link>
-        </RBXNavbar.Item>
-      )
+        )}
+      </RBXNavbar.Item>
+    )
+  }
+
+  const generateNavbarItems = () => {
+    const navbarItems = []
+    nodes.map(item => {
+      const subItems = []
+
+      if (item.subfields !== null) {
+        item.subfields.map(subItem => {
+          subItems.push(wrapNavbarItem(subItem))
+        })
+
+        navbarItems.push(
+          <RBXNavbar.Item
+            as="div"
+            textSize={4}
+            key={item.label}
+            dropdown
+            hoverable
+          >
+            <RBXNavbar.Link>
+              <Link
+                to={item.link}
+                className={navbarStyles.navItem}
+                activeClassName={navbarStyles.navItemActive}
+              >
+                {item.label}
+              </Link>
+            </RBXNavbar.Link>
+            <RBXNavbar.Dropdown boxed>{subItems}</RBXNavbar.Dropdown>
+          </RBXNavbar.Item>
+        )
+      } else {
+        navbarItems.push(wrapNavbarItem(item))
+      }
     })
-    return navbarItemsArray
+    return navbarItems
   }
 
   return (
@@ -58,92 +101,7 @@ export const Navbar = () => {
       </RBXNavbar.Brand>
       <RBXNavbar.Menu>
         <RBXNavbar.Segment align="end">
-          {/* {generateNavbarItems()} */}
-          <RBXNavbar.Item as="div" textSize={4} dropdown hoverable>
-            <RBXNavbar.Link>
-              <Link
-                to="/"
-                className={navbarStyles.navItem}
-                activeClassName={navbarStyles.navItemActive}
-              >
-                Home
-              </Link>
-            </RBXNavbar.Link>
-            <RBXNavbar.Dropdown boxed>
-              <RBXNavbar.Item as="div" textSize={4}>
-                <AnchorLink
-                  to="/#about"
-                  className={navbarStyles.navItem}
-                  activeClassName={navbarStyles.navItemActive}
-                >
-                  About me
-                </AnchorLink>
-              </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize={4}>
-                <AnchorLink
-                  to="/#work"
-                  className={navbarStyles.navItem}
-                  activeClassName={navbarStyles.navItemActive}
-                >
-                  Work
-                </AnchorLink>
-              </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize={4}>
-                <AnchorLink
-                  to="/#recent-projects"
-                  className={navbarStyles.navItem}
-                  activeClassName={navbarStyles.navItemActive}
-                >
-                  Recent projects
-                </AnchorLink>
-              </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize={4}>
-                <AnchorLink
-                  to="/#skills"
-                  className={navbarStyles.navItem}
-                  activeClassName={navbarStyles.navItemActive}
-                >
-                  Skills
-                </AnchorLink>
-              </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize={4}>
-                <AnchorLink
-                  to="/#recent-posts"
-                  className={navbarStyles.navItem}
-                  activeClassName={navbarStyles.navItemActive}
-                >
-                  Recent blog posts
-                </AnchorLink>
-              </RBXNavbar.Item>
-              <RBXNavbar.Item as="div" textSize={4}>
-                <AnchorLink
-                  to="/#contact"
-                  className={navbarStyles.navItem}
-                  activeClassName={navbarStyles.navItemActive}
-                >
-                  Contact
-                </AnchorLink>
-              </RBXNavbar.Item>
-            </RBXNavbar.Dropdown>
-          </RBXNavbar.Item>
-          <RBXNavbar.Item as="div" textSize={4}>
-            <Link
-              to="/projects/"
-              className={navbarStyles.navItem}
-              activeClassName={navbarStyles.navItemActive}
-            >
-              Projects
-            </Link>
-          </RBXNavbar.Item>
-          <RBXNavbar.Item as="div" textSize={4}>
-            <Link
-              to="/blog/"
-              className={navbarStyles.navItem}
-              activeClassName={navbarStyles.navItemActive}
-            >
-              Blog
-            </Link>
-          </RBXNavbar.Item>
+          {generateNavbarItems()}
         </RBXNavbar.Segment>
       </RBXNavbar.Menu>
     </RBXNavbar>

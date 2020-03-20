@@ -1,11 +1,33 @@
 [
   {
     "label": "Home",
-    "link": "/"
-  },
-  {
-    "label": "About",
-    "link": "/about/"
+    "link": "/",
+    "subfields": [
+      {
+        "label": "About me",
+        "link": "/#about"
+      },
+      {
+        "label": "Work",
+        "link": "/#work"
+      },
+      {
+        "label": "Recent projects",
+        "link": "/#recent-projects"
+      },
+      {
+        "label": "Skills",
+        "link": "/#skills"
+      },
+      {
+        "label": "Recent blog posts",
+        "link": "/#recent-posts"
+      },
+      {
+        "label": "Contact",
+        "link": "/#contact"
+      }
+    ]
   },
   {
     "label": "Projects",
@@ -14,9 +36,5 @@
   {
     "label": "Blog",
     "link": "/blog/"
-  },
-  {
-    "label": "Contact",
-    "link": "/contact/"
   }
 ]
