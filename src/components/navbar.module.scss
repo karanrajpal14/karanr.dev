@@ -1,13 +1,29 @@
 .navbar {
-  border-top: #639 solid 0.4em;
-  border-bottom: #639 solid 0.1em;
+  border-top: #639 solid 0.2em;
+  border-bottom: #639 solid 0.2em;
 }
 
 .nav-item {
-  color: hsl(0, 0%, 29%);
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+.nav-item:hover {
+  color: darken($color: #663399, $amount: 10);
 }
 
 .nav-item-active {
   font-weight: 700;
-  color: hsl(0, 0%, 0%);
+}
+
+.logo {
+  margin-top: 0.2em;
+  transition-property: fill;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+.logo:hover {
+  fill: #333;
 }
