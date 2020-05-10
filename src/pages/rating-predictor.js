@@ -22,8 +22,6 @@ import {
 import * as yup from "yup"
 import axios from "axios"
 import { IconSelector } from "src/components/IconSelector"
-import { motion, AnimatePresence } from "framer-motion"
-import SEO from "react-seo-component"
 import { Layout } from "../components/Layout"
 
 const sleep = milliseconds => {
@@ -184,17 +182,6 @@ export default class RatingPredictor extends React.Component {
                                 Predicted rating = {this.state.rating}
                               </Generic>
                             </Notification>
-                            <AnimatePresence>
-                              <motion.div
-                                positionTransition
-                                initial={{ opacity: 0, y: 50, scale: 0.3 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{
-                                  opacity: 0,
-                                  scale: 0.5,
-                                  transition: { duration: 0.5 },
-                                }}
-                              >
                                 <Notification
                                   color="danger"
                                   hidden={this.state.submitErrorHidden}
@@ -226,8 +213,6 @@ export default class RatingPredictor extends React.Component {
                                     Your message is copied to your clipboard ;)
                                   </Generic>
                                 </Notification>
-                              </motion.div>
-                            </AnimatePresence>
                           </Form>
                         )
                       }}
