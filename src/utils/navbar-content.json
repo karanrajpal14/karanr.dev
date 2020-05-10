@@ -36,5 +36,9 @@
   {
     "label": "Blog",
     "link": "/blog/"
+  },
+  {
+    "label": "Rating Predictor",
+    "link": "/rating-predictor/"
   }
 ]
