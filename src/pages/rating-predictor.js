@@ -1,10 +1,10 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Formik, Form, Field as FormikField, ErrorMessage } from "formik"
 import {
   Field,
   Label,
   Control,
-  Input,
   Help,
   Icon,
   Textarea,
@@ -88,7 +88,6 @@ export default class RatingPredictor extends React.Component {
         let rating = response.data.rating
         actions.setSubmitting(false)
         this.toggleSuccess(rating)
-        actions.resetForm()
       })
       .catch(error => {
         actions.setSubmitting(false)
@@ -108,9 +107,14 @@ export default class RatingPredictor extends React.Component {
                     <Title as="h2" textAlign="centered" spaced>
                       Rating Predictor
                     </Title>
+                    <Title subtitle as="h2" textAlign="centered" spaced>
+                      Predicting rating for reviews using a ML model. Built
+                      using Flask and Gatsby for my Data Mining course at UTA.
+                      You can read more about it <Link to="/">here</Link>.
+                    </Title>
                     <Generic as="p" textSize={4}>
                       Just type a review for any game and I will predict a
-                      rating for your review
+                      rating for your review.
                     </Generic>
                     <Formik
                       initialValues={{
@@ -135,7 +139,7 @@ export default class RatingPredictor extends React.Component {
                                       innerRef={textarea =>
                                         (this.textArea = textarea)
                                       }
-                                      placeholder="Tell me, what ails you?"
+                                      placeholder="Enter your review"
                                     />
                                     <Help color="black" as="div">
                                       <ErrorMessage
@@ -182,37 +186,22 @@ export default class RatingPredictor extends React.Component {
                                 Predicted rating = {this.state.rating}
                               </Generic>
                             </Notification>
-                                <Notification
-                                  color="danger"
-                                  hidden={this.state.submitErrorHidden}
-                                >
-                                  <Delete
-                                    as="button"
-                                    onClick={this.toggleError}
-                                  />
-                                  <Generic
-                                    as="p"
-                                    size={3}
-                                    textWeight="semibold"
-                                  >
-                                    Uh oh! Looks like there was a problem
-                                    sending out the email.
-                                  </Generic>
-                                  <Generic
-                                    as="p"
-                                    size={3}
-                                    textWeight="semibold"
-                                  >
-                                    Sorry about that. Mind trying again?
-                                  </Generic>
-                                  <Generic
-                                    as="p"
-                                    size={3}
-                                    textWeight="semibold"
-                                  >
-                                    Your message is copied to your clipboard ;)
-                                  </Generic>
-                                </Notification>
+                            <Notification
+                              color="danger"
+                              hidden={this.state.submitErrorHidden}
+                            >
+                              <Delete as="button" onClick={this.toggleError} />
+                              <Generic as="p" size={3} textWeight="semibold">
+                                Uh oh! Looks like there was a problem predicting
+                                a rating for the review.
+                              </Generic>
+                              <Generic as="p" size={3} textWeight="semibold">
+                                Sorry about that. Mind trying again?
+                              </Generic>
+                              <Generic as="p" size={3} textWeight="semibold">
+                                Your review is copied to the clipboard ;)
+                              </Generic>
+                            </Notification>
                           </Form>
                         )
                       }}
