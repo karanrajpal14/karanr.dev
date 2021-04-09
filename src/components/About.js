@@ -3,10 +3,22 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Section, Container, Title, Column, Generic } from "rbx"
 import { IconSelector } from "./IconSelector"
 
+const Announcement = ({ expiry }) => {
+  if (expiry < new Date()) return null
+  return (
+    <Generic as="p" textSize={4} textWeight="medium" textColor="danger">
+      I'm currently looking for full-time web development opportunities. If you have a
+      challenging role for me at your organization,{" "}
+      <AnchorLink to="/#contact">let me know.</AnchorLink>
+    </Generic>
+  )
+}
+
 export const About = () => {
-  let date1 = new Date("2016/06/18").getFullYear()
-  let date2 = new Date().getFullYear()
-  let yearsDiff = date2 - date1
+  let careerStartDate = new Date("2016/06/18").getFullYear()
+  let today = new Date().getFullYear()
+  let yearsDiff = today - careerStartDate
+  let announcementExpiry = new Date("2021/12/31")
 
   return (
     <Section id="about">
@@ -21,9 +33,7 @@ export const About = () => {
             Android applications and I've been been professionally developing
             applications for the past {yearsDiff} years.
           </Generic>
-          <Generic as="p" textSize={4} textWeight="medium" textColor="danger">
-            I'm currently looking for Summer Internship opportunities. If you have a challenging role for me at your company, <AnchorLink to="/#contact">let me know.</AnchorLink>
-          </Generic>
+          <Announcement expiry={announcementExpiry} />
         </Container>
       </Column>
     </Section>
