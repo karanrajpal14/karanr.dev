@@ -19,7 +19,7 @@ export const Projects = () => {
           <Column.Group multiline>
             {projects.map(({ id, excerpt, frontmatter, fields }) => {
               return (
-                <Column size="one-third-desktop half-tablet" narrow key={id}>
+                <Column size="half" narrow key={id}>
                   <Link to={"/projects/" + fields.slug}>
                     <StyledCard className="card-equal-height">
                       <StyledCard.Image>

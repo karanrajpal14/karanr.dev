@@ -20,8 +20,8 @@ export default () => {
           </Title>
           <Column.Group multiline centered>
             {projects.map(({ id, excerpt, frontmatter, fields }) => (
-              <Column size="one-fourth-desktop half-tablet" key={id}>
-                <Link to={`/projects/${fields.slug}`}>
+              <Column size="one-third-desktop half-tablet" key={id}>
+                <Link to={`/projects${fields.slug}`}>
                   <StyledCard className="card-equal-height">
                     <Card.Image>
                       {!!frontmatter.cover ? (

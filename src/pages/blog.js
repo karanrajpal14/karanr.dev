@@ -19,8 +19,8 @@ export default () => {
           </Title>
           <Column.Group multiline centered>
             {posts.map(({ id, excerpt, frontmatter, fields }) => (
-              <Column size="one-fourth-desktop half-tablet" key={id}>
-                <Link to={`/blog/${fields.slug}`}>
+              <Column size="one-third-desktop half-tablet" key={id}>
+                <Link to={`/blog${fields.slug}`}>
                   <StyledCard className="card-equal-height">
                     <StyledCard.Header>
                       <StyledCard.Header.Title align="centered">
@@ -31,7 +31,7 @@ export default () => {
                     </StyledCard.Header>
                     <StyledCard.Content>
                       <Title as="p" subtitle size={5}>
-                        {excerpt.substring(frontmatter.title.length)}
+                        {excerpt}
                       </Title>
                     </StyledCard.Content>
                     <StyledCard.Footer

@@ -18,7 +18,7 @@ export const Blog = () => {
           <Column.Group multiline centered>
             {posts.map(({ id, excerpt, frontmatter, fields }) => {
               return (
-                <Column size="one-third-desktop half-tablet" narrow key={id}>
+                <Column size="half" narrow key={id}>
                   <Link to={"/blog/" + fields.slug}>
                     <StyledCard className="card-equal-height">
                       <StyledCard.Header>
