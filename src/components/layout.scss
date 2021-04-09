@@ -13,6 +13,14 @@ $main-light: lighten(
 );
 $link: $main;
 
+$gta: #0064b1;
+$gta-invert: findColorInvert($gta);
+$dsc: #4285F4;
+$dsc-invert: findColorInvert($dsc);
+$tf: #74C262;
+$tf-invert: findColorInvert($tf);
+$trio: #231f20;
+$trio-invert: findColorInvert($trio);
 $propelld: #172c82;
 $propelld-invert: findColorInvert($propelld);
 $iisc: #231f20;
@@ -50,6 +58,22 @@ $addColors: (
   "propelld": (
     $propelld,
     $propelld-invert,
+  ),
+  "trio": (
+    $trio,
+    $trio-invert,
+  ),
+  "tf": (
+    $tf,
+    $tf-invert,
+  ),
+  "dsc": (
+    $dsc,
+    $dsc-invert,
+  ),
+  "gta": (
+    $gta,
+    $gta-invert,
   ),
 );
 
