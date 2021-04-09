@@ -182,7 +182,7 @@ const Hero = ({
                 <Heading>Resume</Heading>
                 <a
                   className={heroStyles.dwicon}
-                  href="/documents/Karan Rajpal - Resume.pdf"
+                  href="https://docs.google.com/viewer?url=https://docs.google.com/document/d/1oscW1FkvmFHCmj2tq6zBx7PjJPEHD0ALr45FVeu_h28/export?format=pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

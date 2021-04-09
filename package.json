@@ -12,11 +12,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean && rimraf node_modules/ yarn.lock && yarn",
-    "postinstall": "patch-package",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@fs/gatsby-plugin-drive": "^0.2.1",
     "@mdx-js/mdx": "^1.5.3",
     "@mdx-js/react": "^1.5.3",
     "axios": "^0.19.1",
@@ -45,8 +43,6 @@
     "gatsby-transformer-json": "^2.3.0",
     "gatsby-transformer-sharp": "^2.4.1",
     "node-sass": "^4.13.0",
-    "patch-package": "^6.2.1",
-    "postinstall-postinstall": "^2.0.0",
     "prism-react-renderer": "^1.0.2",
     "rbx": "^2.2.0",
     "react": "^16.13.1",
