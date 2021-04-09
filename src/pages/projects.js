@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Layout } from "../components/Layout"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { Section, Container, Title, Image, Column, Card, Generic } from "rbx"
@@ -23,7 +22,7 @@ export default ({ data }) => {
   const projects = useProjects()
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={description || `No description found’`}
@@ -99,6 +98,6 @@ export default ({ data }) => {
           </Column.Group>
         </Container>
       </Section>
-    </Layout>
+    </>
   )
 }

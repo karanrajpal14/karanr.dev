@@ -1,5 +1,4 @@
 import React from "react"
-import { Layout } from "../components/Layout"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import Hero from "../components/Hero"
@@ -26,7 +25,7 @@ export default ({ data }) => {
   } = useSiteMetadata()
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={description || `No description found’`}
@@ -49,6 +48,6 @@ export default ({ data }) => {
       <Skills />
       <Blog />
       <Contact />
-    </Layout>
+    </>
   )
 }

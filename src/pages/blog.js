@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Layout } from "../components/Layout"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { useBlogPosts } from "../hooks/useBlogPosts"
@@ -21,7 +20,7 @@ export default () => {
   const posts = useBlogPosts()
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={description || `No description found’`}
@@ -85,6 +84,6 @@ export default () => {
           </Column.Group>
         </Container>
       </Section>
-    </Layout>
+    </>
   )
 }

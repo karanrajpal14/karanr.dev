@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { Layout } from "../components/Layout"
+import SEOComponent from "../components/SEOComponent"
 import SEO from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
@@ -19,7 +19,7 @@ export default () => {
   } = useSiteMetadata()
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={description || `No description found’`}
@@ -35,6 +35,6 @@ export default () => {
           <Link to="/">Head back home and start over</Link>
         </h2>
       </IndexWrapper>
-    </Layout>
+    </>
   )
 }

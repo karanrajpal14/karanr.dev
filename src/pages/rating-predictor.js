@@ -22,7 +22,6 @@ import {
 import * as yup from "yup"
 import axios from "axios"
 import { IconSelector } from "src/components/IconSelector"
-import { Layout } from "../components/Layout"
 
 const sleep = milliseconds => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -97,7 +96,7 @@ export default class RatingPredictor extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <>
         <Section id="contact" className="primary-light-bg">
           <Generic as={Container} textAlign="centered">
             <Column.Group centered>
@@ -212,7 +211,7 @@ export default class RatingPredictor extends React.Component {
             </Column.Group>
           </Generic>
         </Section>
-      </Layout>
+      </>
     )
   }
 }
