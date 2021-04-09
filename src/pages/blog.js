@@ -1,35 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
-import SEO from "react-seo-component"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { useBlogPosts } from "../hooks/useBlogPosts"
 import { Section, Container, Column, Title, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
 import { StyledCard } from "../components/StyledCard"
+import SEOComponent from "../components/SEOComponent"
 
 export default () => {
-  const {
-    description,
-    title,
-    image,
-    siteUrl,
-    siteLanguage,
-    siteLocale,
-    twitterUsername,
-  } = useSiteMetadata()
   const posts = useBlogPosts()
 
   return (
     <>
-      <SEO
-        title={title}
-        description={description || `No description found’`}
-        image={`${siteUrl}${image}`}
-        pathname={siteUrl}
-        siteLanguage={siteLanguage}
-        siteLocale={siteLocale}
-        twitterUsername={twitterUsername}
-      />
+      <SEOComponent title="Blog" />
       <Section className="navbar-margin">
         <Container>
           <Title as="h1">

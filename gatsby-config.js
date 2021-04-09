@@ -3,16 +3,16 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Karan Rajpal | Portfolio`,
-    description: `This is my coding blog where I write about my coding journey.`,
-    image: `/header.jpg`,
-    siteUrl: `https://karanr.dev`,
+    description:
+      "This is my portfolio / blog where I write about my professional and personal journey.",
+    url: "https://www.karanr.dev",
+    image: "/header.jpg",
     siteLanguage: `en-GB`,
     siteLocale: `en_gb`,
     authorName: `Karan Rajpal`,
     designation: `Software Developer`,
     careerStartYear: `2016`,
-    twitterUsername: `@karanrajpal14`,
+    twitterUsername: "@karanrajpal14",
     githubUsername: `karanrajpal14`,
     linkedinUsername: `karan-rajpal`,
   },

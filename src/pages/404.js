@@ -2,33 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import SEOComponent from "../components/SEOComponent"
-import SEO from "react-seo-component"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const IndexWrapper = styled.main``
 
 export default () => {
-  const {
-    description,
-    title,
-    image,
-    siteUrl,
-    siteLanguage,
-    siteLocale,
-    twitterUsername,
-  } = useSiteMetadata()
-
   return (
     <>
-      <SEO
-        title={title}
-        description={description || `No description found’`}
-        image={`${siteUrl}${image}`}
-        pathname={siteUrl}
-        siteLanguage={siteLanguage}
-        siteLocale={siteLocale}
-        twitterUsername={twitterUsername}
-      />
+      <SEOComponent title="404" />
       <IndexWrapper>
         <h1>Uh oh, looks like you're not where you should be.</h1>
         <h2>

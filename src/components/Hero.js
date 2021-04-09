@@ -9,17 +9,12 @@ import {
   Level,
   Heading,
 } from "rbx"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import heroStyles from "./hero.module.scss"
 import Img from "gatsby-image"
 import { IconSelector } from "./IconSelector"
 
-const Hero = ({
-  authorName,
-  designation,
-  githubUsername,
-  linkedinUsername,
-  twitterUsername,
-}) => {
+const Hero = () => {
   const data = useStaticQuery(graphql`
     {
       allImageSharp(filter: { fixed: { originalName: { eq: "photo.png" } } }) {
@@ -31,6 +26,14 @@ const Hero = ({
       }
     }
   `)
+
+  const {
+    authorName,
+    designation,
+    githubUsername,
+    twitterUsername,
+    linkedinUsername,
+  } = useSiteMetadata()
 
   const title = `Hello. I'm ${authorName}.`
   const subtitle = `A ${designation} from Bangalore, India.`

@@ -1,37 +1,18 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import SEO from "react-seo-component"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { Link } from "gatsby"
 import { Section, Container, Title, Image, Column, Card, Generic } from "rbx"
 import { IconSelector } from "../components/IconSelector"
 import { StyledCard } from "../components/StyledCard"
 import { StyledImage } from "../components/StyledImage"
 import { useProjects } from "../hooks/useProjects"
+import SEOComponent from "../components/SEOComponent"
 
-export default ({ data }) => {
-  const {
-    description,
-    title,
-    image,
-    siteUrl,
-    siteLanguage,
-    siteLocale,
-    twitterUsername,
-  } = useSiteMetadata()
-
+export default () => {
   const projects = useProjects()
 
   return (
     <>
-      <SEO
-        title={title}
-        description={description || `No description found’`}
-        image={`${siteUrl}${image}`}
-        pathname={siteUrl}
-        siteLanguage={siteLanguage}
-        siteLocale={siteLocale}
-        twitterUsername={twitterUsername}
-      />
+      <SEOComponent title="Projects" />
       <Section className="navbar-margin">
         <Container>
           <Title as="h1">

@@ -6,10 +6,9 @@ export const useSiteMetadata = () => {
       query SITE_METADATA_QUERY {
         site {
           siteMetadata {
-            title
-            description
-            image
-            siteUrl
+            defaultDescription: description
+            defaultImage: image
+            siteUrl: url
             siteLanguage
             siteLocale
             authorName
