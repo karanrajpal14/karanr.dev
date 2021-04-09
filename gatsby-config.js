@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     description:
       "This is my portfolio / blog where I write about my professional and personal journey.",
-    url: "https://www.karanr.dev",
+    siteUrl: "https://www.karanr.dev",
     image: "/header.jpg",
     siteLanguage: `en-GB`,
     siteLocale: `en_gb`,
