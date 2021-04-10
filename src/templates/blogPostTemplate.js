@@ -8,7 +8,7 @@ import { Container, Title, Divider, Button, Icon, Column, Section } from "rbx"
 import SEOComponent from "../components/SEOComponent"
 import { IconSelector } from "src/components/IconSelector"
 
-export default ({ data, pageContext }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
   const { image, siteUrl } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, cover } = frontmatter
@@ -82,6 +82,8 @@ export default ({ data, pageContext }) => {
   )
 }
 
+export default BlogPostTemplate
+
 export const query = graphql`
   query PostBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
@@ -91,8 +93,8 @@ export const query = graphql`
         cover {
           publicURL
           childImageSharp {
-            sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            fluid(maxWidth: 2000, traceSVG: { color: "#639" }) {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }

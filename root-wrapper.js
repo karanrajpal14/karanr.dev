@@ -2,8 +2,8 @@ import { MDXProvider } from "@mdx-js/react"
 import React from "react"
 import { Code } from "./src/components/Code"
 import { Content } from "rbx"
-import "typeface-aleo"
-import "typeface-cooper-hewitt"
+import "@fontsource/aleo"
+import "@fontsource/cooper-hewitt"
 
 const components = {
   pre: ({ children: { props } }) => {

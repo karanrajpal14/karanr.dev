@@ -10,7 +10,7 @@ import {
   Heading,
 } from "rbx"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import heroStyles from "./hero.module.scss"
+import * as heroStyles from "./hero.module.scss"
 import Img from "gatsby-image"
 import { IconSelector } from "./IconSelector"
 
@@ -92,10 +92,6 @@ const Hero = () => {
               <Generic as="span" className="animated-title">
                 {prepareAnimatedText().wrappedTitle}
               </Generic>
-              <Generic
-                as="span"
-                className={heroStyles.animatedTitleUnderline}
-              ></Generic>
             </Generic>
           </Title>
 
@@ -114,10 +110,6 @@ const Hero = () => {
               <Generic as="span" className="animated-subtitle">
                 {prepareAnimatedText().wrappedSubtitle}
               </Generic>
-              <Generic
-                as="span"
-                className={heroStyles.animatedSubtitleUnderline}
-              ></Generic>
             </Generic>
           </Title>
 

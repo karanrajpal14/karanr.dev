@@ -8,11 +8,11 @@ import { Work } from "../components/Work"
 import { Skills } from "../components/Skills"
 import SEOComponent from "../components/SEOComponent"
 
-export default () => {
+const Index = () => {
   return (
     <>
       <SEOComponent title="Home" />
-      <Hero/>
+      <Hero />
       <About />
       <Work />
       <Projects />
@@ -22,3 +22,5 @@ export default () => {
     </>
   )
 }
+
+export default Index

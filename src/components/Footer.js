@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Footer as RBXFooter, Content, Column } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import footerStyles from "./footer.module.scss"
+import * as footerStyles from "./footer.module.scss"
 import { IconSelector } from "./IconSelector"
 
 export const Footer = () => {

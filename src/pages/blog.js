@@ -6,7 +6,7 @@ import { IconSelector } from "../components/IconSelector"
 import { StyledCard } from "../components/StyledCard"
 import SEOComponent from "../components/SEOComponent"
 
-export default () => {
+const Blog = () => {
   const posts = useBlogPosts()
 
   return (
@@ -69,3 +69,5 @@ export default () => {
     </>
   )
 }
+
+export default Blog

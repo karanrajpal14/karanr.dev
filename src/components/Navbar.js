@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Navbar as RBXNavbar } from "rbx"
 import { useNavbarContent } from "../hooks/useNavbarContent"
-import navbarStyles from "./navbar.module.scss"
+import * as navbarStyles from "./navbar.module.scss"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 export const Navbar = () => {
@@ -36,11 +36,11 @@ export const Navbar = () => {
 
   const generateNavbarItems = () => {
     const navbarItems = []
-    nodes.map(item => {
+    nodes.forEach(item => {
       const subItems = []
 
       if (item.subfields !== null) {
-        item.subfields.map(subItem => {
+        item.subfields.forEach(subItem => {
           subItems.push(wrapNavbarItem(subItem))
         })
 

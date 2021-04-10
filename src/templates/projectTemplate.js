@@ -9,7 +9,7 @@ import { Container, Title, Divider, Button, Icon, Column, Section } from "rbx"
 import SEOComponent from "../components/SEOComponent"
 import { IconSelector } from "src/components/IconSelector"
 
-export default ({ data, pageContext }) => {
+const ProjectTemplate = ({ data, pageContext }) => {
   const { image, siteUrl } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, cover } = frontmatter
@@ -34,7 +34,7 @@ export default ({ data, pageContext }) => {
           </Title>
           <Divider />
           {!!frontmatter.cover ? (
-            <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+            <Img sizes={frontmatter.cover.childImageSharp.fluid} />
           ) : null}
           <Divider />
           <MDXRenderer>{body}</MDXRenderer>
@@ -82,6 +82,8 @@ export default ({ data, pageContext }) => {
   )
 }
 
+export default ProjectTemplate
+
 export const query = graphql`
   query ProjectBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
@@ -91,8 +93,8 @@ export const query = graphql`
         cover {
           publicURL
           childImageSharp {
-            sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            fluid(maxWidth: 2000, traceSVG: { color: "#639" }) {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }

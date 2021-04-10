@@ -20,8 +20,8 @@ export const getBlogPosts = () => {
             cover {
               publicURL
               childImageSharp {
-                sizes(maxWidth: 1500, traceSVG: { color: "#639" }) {
-                  ...GatsbyImageSharpSizes_tracedSVG
+                fluid(maxWidth: 1500, traceSVG: { color: "#639" }) {
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }

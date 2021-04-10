@@ -7,7 +7,7 @@ import { StyledImage } from "../components/StyledImage"
 import { useProjects } from "../hooks/useProjects"
 import SEOComponent from "../components/SEOComponent"
 
-export default () => {
+const Projects = () => {
   const projects = useProjects()
 
   return (
@@ -82,3 +82,5 @@ export default () => {
     </>
   )
 }
+
+export default Projects;
